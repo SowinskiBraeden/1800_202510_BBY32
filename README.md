@@ -5,4 +5,5 @@ A centralized, simpler search program for housing that is affordable and conside
 ## Contributors
 
 * [Braeden Sowinski](https://github.com/SowinskiBraeden)
+* Trishaan Shetty
 
