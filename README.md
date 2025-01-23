@@ -1,6 +1,6 @@
 # Housing
 
-A centralized app to find rentable housing at an affordable cost with considerations such as transit to your work or school.
+A centralized application to find rentable housing at an affordable cost with considerations such as transit to your work or school.
 
 ## Contributors
 
