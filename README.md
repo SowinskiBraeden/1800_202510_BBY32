@@ -4,6 +4,8 @@ A centralized application to find rentable housing at an affordable cost with co
 
 For our projects 1800 course
 
+For the comp 1800 course.
+
 ## Contributors
 
 * [Braeden Sowinski](https://github.com/SowinskiBraeden)
