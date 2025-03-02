@@ -8,17 +8,11 @@
   overflow-x: hidden;
 }
 
-body{
-  background-color: #D20001;
-}
-
 .NavBar {
   background-color: #D20001;
   display: flex;
+  padding: 12pt;
   justify-content: space-between;
-  z-index: 2;
-  margin: 6pt;
-  padding-right: 10pt;
 }
 
 .Logo {
@@ -27,12 +21,24 @@ body{
   height: auto;
 }
 
+.links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.links a {
+  margin-right: 64pt;
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
 .NavBarItems {
-  background-color: #D20001;
   display: flex;
   flex-direction: column;
-  font-size: 35pt;
-  font-family: 'Oswald', sans-serif;
+  font-size: 24px;
   color: #FEDEB8;
   margin: 0;
   justify-content: center;
@@ -46,6 +52,17 @@ body{
 .image-wrap img {
   width: 125%;
   transform: translate(0%, -5%);
+}
+
+.login-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#firebaseui-auth-container {
+  width: 250pt;
 }
 
 .main-content {
@@ -97,7 +114,6 @@ body{
 
 .join-btn:hover {
   background-color: #E64B0A;
-
 }
 
 .Footer {

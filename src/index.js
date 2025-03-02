@@ -11,9 +11,19 @@ app.get('/', (req, res) => {
   return res.sendFile(path.join(__dirname, '/views/index.html'));
 });
 
+app.get("/login", (req, res) => {
+  res.status(200);
+  return res.sendFile(path.join(__dirname, '/views/login.html'));
+})
+
+app.get("/dashboard", (req, res) => {
+  res.status(200);
+  return res.sendFile(path.join(__dirname, '/views/dashboard.html'));
+})
+
 app.get("*", (req, res) => {
   res.status(404);
-  return res.sendFile(path.join(__dirname, '/views/notfound.html'));
+  return res.sendFile(path.join(__dirname, '/views/not-found.html'));
 });
 
 app.listen(port, () => {
