@@ -14,12 +14,17 @@ app.get('/', (req, res) => {
 app.get("/login", (req, res) => {
   res.status(200);
   return res.sendFile(path.join(__dirname, '/views/login.html'));
-})
+});
 
 app.get("/dashboard", (req, res) => {
   res.status(200);
   return res.sendFile(path.join(__dirname, '/views/dashboard.html'));
-})
+});
+
+app.get("/dashboard/profile", (req, res) => {
+  res.status(200);
+  return res.sendFile(path.join(__dirname, '/views/profile.html'));
+});
 
 app.get("*", (req, res) => {
   res.status(404);

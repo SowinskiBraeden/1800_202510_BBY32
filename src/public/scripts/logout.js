@@ -7,3 +7,13 @@ function logout() {
       console.error(error);
   });
 }
+
+function isNotAuthenticated() {
+  firebase.auth().onAuthStateChanged(user => {
+    // redirect to dashboard if user is already authenticated
+    if (!user) {
+      window.location.href = "/login";
+    }
+  });
+}
+isNotAuthenticated();
