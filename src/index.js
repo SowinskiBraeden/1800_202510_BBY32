@@ -21,9 +21,19 @@ app.get("/dashboard", (req, res) => {
   return res.sendFile(path.join(__dirname, '/views/dashboard.html'));
 });
 
+app.get("/dashboard/favourites", (req, res) => {
+  res.status(200);
+  return res.sendFile(path.join(__dirname, '/views/favourites.html'));
+});
+
 app.get("/dashboard/profile", (req, res) => {
   res.status(200);
   return res.sendFile(path.join(__dirname, '/views/profile.html'));
+});
+
+app.get("/dashboard/listing", (req, res) => {
+  res.status(200);
+  return res.sendFile(path.join(__dirname, '/views/listing.html'));
 });
 
 app.get("*", (req, res) => {
