@@ -7,6 +7,14 @@
   font-family: 'Oswald', sans-serif;
   overflow-x: hidden;
 }
+/***HEADER***/
+#header {
+  background-color:#bbb;
+  bottom: 99%;
+  display: block;
+  padding: 2pt;
+}
+
 
 /*** FOOTER ***/
 
@@ -40,5 +48,40 @@
   left: 50%;
   transform: translate(-50%, -50%);
   overflow-y: hidden;
+  color: black;
+}
+
+#profContent>img{
+  top: 10%;
+  width: 25%;
+  height: 25%;
+  left: 37%;
+  right: 33%;
+  border-radius: 50%;
+  position: fixed;
+  
+}
+#name-goes-here{
+  position: fixed;
+  left:49%;
+  top: 43%;
+  transform: translate(-50%, -50%);
+  font-size: 24pt;
+  color: black;
+}
+#email{
+  position: fixed;
+  left:49%;
+  top: 53%;
+  transform: translate(-50%, -50%);
+  font-size: 24pt;
+  color: black;
+}
+#address-goes-here{
+  position: fixed;
+  left:49%;
+  top: 63%;
+  transform: translate(-50%, -50%);
+  font-size: 24pt;
   color: black;
 }
