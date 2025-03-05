@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hoser Housing</title>
+    <meta name="comp1800 template" content="My 1800 App">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <script src="https://kit.fontawesome.com/3d06b711de.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/static/css/listing.css">
+  </head>
+
+  <body>
+    
+    <div class="grid-container">
+        <!--Nav-->
+        <header class="header-container">
+            <!--Nav Icons-->
+            <div class="Nav-links">
+                <a href="/dashboard">
+                  <img src="/static/icons/house-solid.svg">
+                </a>
+                <a href="/dashboard/favourites">
+                  <img src="/static/icons/heart.svg">
+                </a>
+                <a href="/dashboard/profile">
+                  <img src="/static/icons/profile.svg">
+                </a>
+              </div>
+            <!-- Search -->
+            <form class="search">
+            <div class="search-bar">
+                <input placeholder="Search by Location e.g. Vancouver   "><button>Search</button>
+            </div>
+            <a href="/dashboard/filters">
+            <p>Filters</p>
+            <i class="fa-solid fa-gear"></i>
+            </a>
+            </form>
+
+        </header>
+
+        <!-- Content -->
+        <section class="main">
+            <!--Lisiting-->
+            <div class="main-container">
+                <img src="" class="Listing_Img">
+                <h1 class="title">$2000/hr</h1>
+                <p class="Dscrptn-location">2025 boomer ave 35 st, Canada Burnaby Burquitlam</p>
+                <p class="Dscrptn-utlities">water & electric paid, 200 sq ft, 4beds, 3bath</p>
+                <p class="Dscrptn-rqrmnts">no boys, keep tidy, no partying, Apartment Unit 100 </p>
+                <p class="Seller">Tom Ski</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+        </footer>
+
+    </div>
+
+    <!-- Script -->
+    <script src="/static/scripts/firebaseAPI_TEAM32.js"></script>
+    <script src="/static/scripts/logout.js"></script>
+
+  </body>
+</html>
