@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hoser Housing</title>
+    <meta name="comp1800 template" content="My 1800 App">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <script src="https://kit.fontawesome.com/3d06b711de.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/static/css/favourites.css">
+  </head>
+
+  <body>
+    <div id="header">
+    <a onclick="logout()" href="/login">Logout</a>
+    </div>
+    <div id="favContent">
+        <div class="favHouse">
+        <img src="https://dummyimage.com/600x400/000/fff&text=placeholder" alt="house picture">
+        <div>
+        <h3>House Name</h3>
+        <p>Address</p>
+        <p>Rent</p>
+        <p>Rating</p>
+        </div>
+        </div>
+        <div class="favHouse">
+            <img src="https://dummyimage.com/600x400/000/fff&text=placeholder" alt="house picture">
+            <div>
+            <h3>House Name</h3>
+            <p>Address</p>
+            <p>Rent</p>
+            <p>Rating</p>
+            </div>
+            </div>
+            <div class="favHouse">
+                <img src="https://dummyimage.com/600x400/000/fff&text=placeholder" alt="house picture">
+                <div>
+                <h3>House Name</h3>
+                <p>Address</p>
+                <p>Rent</p>
+                <p>Rating</p>
+                </div>
+                </div>
+                <div class="favHouse">
+                    <img src="https://dummyimage.com/600x400/000/fff&text=placeholder" alt="house picture">
+                    <div>
+                    <h3>House Name</h3>
+                    <p>Address</p>
+                    <p>Rent</p>
+                    <p>Rating</p>
+                    </div>
+                    </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="/dashboard">
+          <img src="/static/icons/house.svg">
+        </a>
+        <a href="/dashboard/favourites">
+          <img src="/static/icons/heart-solid.svg">
+        </a>
+        <a href="/dashboard/profile">
+          <img src="/static/icons/profile.svg">
+        </a>
+      </div>
+    </footer>
+
+    <script src="/static/scripts/firebaseAPI_TEAM32.js"></script>
+    <script src="/static/scripts/logout.js"></script>
+    <script src="/static/scripts/profile.js"></script>
+  </body>
+</html>
