@@ -22,9 +22,13 @@ app.get("/dashboard", (req, res) => {
 });
 
 app.get("/dashboard/profile", (req, res) => {
-  res.status(200);
+res.status(200);
   return res.sendFile(path.join(__dirname, '/views/profile.html'));
 });
+app.get("/dashboard/favourites", (req, res) => {
+  res.status(200);
+    return res.sendFile(path.join(__dirname, '/views/favourites.html'));
+  });
 
 app.get("*", (req, res) => {
   res.status(404);
