@@ -50,6 +50,8 @@
   overflow-y: hidden;
   color: black;
 }
+<<<<<<< HEAD
+=======
 #favContent{
     display: flexbox;
 }
@@ -66,3 +68,4 @@
   right: 33%;
   
 }
+>>>>>>> ec2fc959cfe74c7a74a9f185f60212dc8d1999b1
