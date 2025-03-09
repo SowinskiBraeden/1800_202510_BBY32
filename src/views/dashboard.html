@@ -33,23 +33,29 @@
       </header>
       
       <section class="main">
-        <div class="main-container">
-          <div class="map">
-            <iframe 
-              width="374" 
-              height="440" 
-              frameborder="0" 
-              scrolling="no" 
-              marginheight="0" 
-              marginwidth="0" 
-              id="gmap_canvas" 
-              src="https://maps.google.com/maps?hl=en&amp;q=%20Burnaby&amp;output=embed">
-            </iframe>
-          </div>
-          <div class="sub-map">
+      
+        <div class="listing-container" id="listings">
+        
+          <template id="listing-template">
+            <div class="listing">
+              <a href="">
+                <div class="listing-content">
+                  <div class="listing-image">
+                    <img class="listing-preview" src="https://dummyimage.com/600x450/919191/ededed&text=No+images+found" alt=""/>
+                  </div>
+                  <div  class="listing-details">
+                    <h3 class="listing-title">Title</h3>
+                    <h3 class="listing-location">Location</h3>
+                    <p  class="listing-data">$1,000 - 800sqft</p>
+                    <p  class="listing-description">big description of house yes</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </template>
 
-          </div>
         </div>
+
       </section>
   
       <footer class="footer">
@@ -72,5 +78,6 @@
 
     <script src="/static/scripts/firebaseAPI_TEAM32.js"></script>
     <script src="/static/scripts/logout.js"></script>
+    <script type="module" src="/static/scripts/loadHousing.js"></script>
   </body>
 </html>
