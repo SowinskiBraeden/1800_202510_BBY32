@@ -52,6 +52,11 @@ app.get("/dashboard/profile", (req, res) => {
   return res.status(status.Ok);
 });
 
+app.get("/dashboard/favourites", (req, res) => {
+  res.status(200);
+    return res.sendFile(path.join(__dirname, '/views/favourites.html'));
+  });
+
 app.get("/dashboard/listing", (req, res) => {
   res.sendFile(path.join(__dirname, '/views/listing.html'));
   return res.status(status.Ok);
