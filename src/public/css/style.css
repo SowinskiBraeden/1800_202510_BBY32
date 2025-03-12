@@ -1,18 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nabla&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Oswald','Bebas Neue', sans-serif;
   overflow-x: hidden;
+}
+
+#Page {
+  grid-template-columns: 1;
+  grid-template-rows: 2;
 }
 
 .NavBar {
   background-color: #D20001;
+  grid-column: 1, 2;
+  grid-row: 1, 2;
   display: flex;
   padding: 12pt;
   justify-content: space-between;
+}
+
+.NavBarLeft {
+  display: flex;
+  flex-direction: row;
 }
 
 .Logo {
@@ -35,6 +48,17 @@
   text-decoration: underline;
 }
 
+.Title {
+  display: flex;
+  flex-direction: column;
+  color: #FEDEB8;
+  justify-content: center;
+  margin-left: 25px;
+  font-size: 35pt;
+  font-family: 'Oswald', sans-serif;
+  
+}
+
 .NavBarItems {
   display: flex;
   flex-direction: column;
@@ -44,14 +68,14 @@
   justify-content: center;
 }
 
+.main {
+  grid-column: 1, 2;
+  grid-row: 2, 3;
+}
+
 .image-wrap {
   filter: brightness(70%);
   position: fixed;
-}
-
-.image-wrap img {
-  width: 125%;
-  transform: translate(0%, -5%);
 }
 
 .login-container {
@@ -68,27 +92,22 @@
 .main-content {
   position: absolute;
   transform: translate(-25%, -50%);
-  background-color: #D2000195;
+  background-color: #D20001;
   top: 50%;
   left: 25%;
   width: 40%;
-  padding: 32pt;
+  padding: 10pt 24pt 10pt 24pt ;
   border-radius: 12pt;
 }
 
 .details-box {
-  color: white;
-}
-
-.details-box h1 {
-  font-size: 5vw;
-  font-family: 'Oswald', sans-serif;
-  margin: 0;
+  color: #FEDEB8;
 }
 
 .details-box h2 {
   font-size: 2.2vw;
-  font-family: arial;
+  font-family: 'Bebas Neue' ;
+  letter-spacing: 2px;
   margin: 0;
 }
 
@@ -96,17 +115,18 @@
   font-family: arial;
   font-size: 18px;
   margin-top: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 0px;
 }
 
 .join-btn {
   display: inline-block;
-  border: 2px solid white;
+  border: 2px solid #FEDEB8;
   border-radius: 6px;
   padding: 11px 40px;
+  margin-top: 25px;
   transition: 0.8s all;
   background-color: transparent;
-  color: white;
+  color: #FEDEB8;
   font-size: 18px;
   text-decoration: none;
   text-transform: capitalize;
