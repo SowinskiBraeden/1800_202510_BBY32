@@ -1,14 +1,25 @@
 // Initialize the FirebaseUI Widget using Firebase.
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
-
 var uiConfig = {
   callbacks: {
     signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-      // User successfully signed in.
-      // Return type determines whether we continue the redirect automatically
-      // or whether we leave that to developer to handle.
-      return true;
-    },
+
+      var user = authResult.user;                            // get the user object from the Firebase authentication database
+        if (authResult.additionalUserInfo.isNewUser) {         //if new user
+            db.collection("users").doc(user.uid).set({         //write to firestore. We are using the UID for the ID in users collection
+                   name: user.displayName,                    //"users" collection
+                   email: user.email,                         //with authenticated user's ID (user.uid)                          //optional default profile info
+            }).then(function () {
+                   console.log("New user added to firestore");
+                   window.location.assign("dashboard.html");       //re-direct to main.html after signup
+            }).catch(function (error) {
+                   console.log("Error adding new user: " + error);
+            });
+        } else {
+            return true;
+        }
+            return false;
+        },
     uiShown: function() {
       // The widget is rendered.
       // Hide the loader.
@@ -27,10 +38,10 @@ var uiConfig = {
     firebase.auth.EmailAuthProvider.PROVIDER_ID,
     // firebase.auth.PhoneAuthProvider.PROVIDER_ID
   ],
-  // Terms of service url.
-  // tosUrl: '<your-tos-url>',
+  //Terms of service url.
+  tosUrl: '<your-tos-url>',
   // Privacy policy url.
-  // privacyPolicyUrl: '<your-privacy-policy-url>'
+   privacyPolicyUrl: '<your-privacy-policy-url>'
 };
 
 ui.start('#firebaseui-auth-container', uiConfig);
