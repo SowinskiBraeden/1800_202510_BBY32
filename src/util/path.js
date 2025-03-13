@@ -5,7 +5,7 @@ const getPath = (filename) => {
     __dirname,
     "../views",
     filename
-  )
+  );
 };
 
 module.exports = getPath;

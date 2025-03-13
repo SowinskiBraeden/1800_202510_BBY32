@@ -8,7 +8,7 @@ const searchPath = "hhh";
 const craigslistAPI = `https://sapi.craigslist.org/web/v8/postings/search?lang=en&area_id=${vancouverAreaID}&searchPath=${searchPath}`
 const craigslistListingPage = `https://vancouver.craigslist.org`;
 
-router.get("/api/listings", async (req, res) => {
+router.get("/listings", async (req, res) => {
   try {
     const raw = await fetch(craigslistAPI, { method: "GET" }).then(response => response.json());
     
@@ -58,7 +58,7 @@ router.get("/api/listings", async (req, res) => {
 });
 
 
-router.get("/api/listing/:area/:category/:seo/:id", async (req, res) => {
+router.get("/listing/:area/:category/:seo/:id", async (req, res) => {
   const area = req.params.area;
   const category = req.params.category;
   const seo = req.params.seo;

@@ -43,7 +43,11 @@ app.use("/users", require("./routes/user"));
 
 app.get("*", (req, res) => {
   res.set("Content-Type", "text/html");
-  return res.status(STATUS.NotFound).sendFile(getPath("not-found.html"));;
+  return res.status(STATUS.NotFound).sendFile(path.join(
+    __dirname,
+    "../views",
+    "not-found.html"
+  ));
 });
 
 const PORT = 8000;
