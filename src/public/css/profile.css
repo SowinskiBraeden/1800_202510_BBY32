@@ -69,14 +69,7 @@
   font-size: 24pt;
   color: black;
 }
-#email{
-  position: fixed;
-  left:49%;
-  top: 53%;
-  transform: translate(-50%, -50%);
-  font-size: 24pt;
-  color: black;
-}
+
 #address-goes-here{
   position: fixed;
   left:49%;
