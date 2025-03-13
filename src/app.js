@@ -127,7 +127,9 @@ app.get("/api/listing/:area/:category/:seo/:id", async (req, res) => {
     const stupidPadding = 17;
     let title = raw.split("id=\"titletextonly\">")[1].split("</span>")[0];
     let location = raw.split("id=\"titletextonly\">")[1].split("</span>")[1].substring(7);
-    let images = raw.split("<div id=\"thumbs\">")[1].split("</div>")[0].split("href=\"")
+    let images = [];
+    if (raw.includes("<div id=\"thumbs\">"))
+      images = raw.split("<div id=\"thumbs\">")[1].split("</div>")[0].split("href=\"");
     images.shift()
     images = images.map((url) => url.split("\"")[0]);
     let price = raw.split("class=\"price\">")[1].split("</span>")[0];
@@ -157,7 +159,7 @@ app.get("/api/listing/:area/:category/:seo/:id", async (req, res) => {
       address: address,
       period: period,
     };
-    
+
     res.set('Content-Type', 'application/json');
     res.send(listing);
     return res.status(status.Ok);
