@@ -1,23 +1,23 @@
-function isAuthenticated() {
+function forwardAuth() {
   let url = window.location.href;
   if (url.includes("login")) {
     firebase.auth().onAuthStateChanged(user => {
       // redirect to dashboard if user is already authenticated
       if (user) {
-        window.location.href = "/dashboard";
+        window.location.assign("dashboard")
       }
     });
   } else if (url.includes("dashboard")) {
     firebase.auth().onAuthStateChanged(user => {
       // redirect to dashboard if user is already authenticated
       if (!user) {
-        window.location.href = "/login";
+        window.location.assign("login");
       }
     });
   }
 }
 
-isAuthenticated();
+forwardAuth();
 
 function logout() {
   firebase.auth().signOut().catch((error) => {
