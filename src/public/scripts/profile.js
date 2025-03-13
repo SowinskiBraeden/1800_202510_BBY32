@@ -37,17 +37,17 @@ function populateUserInfo() {
 populateUserInfo();
 function editUserInfo() {
     //Enable the form fields
-    document.getElementById('personalInfoFields').disabled = false;
+    document.getElementById("personalInfoFields").disabled = false;
  }
  function saveUserInfo() {
     //enter code here
 
     //a) get user entered values
-    userName = document.getElementById('nameInput').value;       //get the value of the field with id="nameInput"
-userSchool = document.getElementById('email').value;     //get the value of the field with id="schoolInput"
-userCity = document.getElementById('cityInput').value;       //get the value of the field with id="cityInput"
+    userName = document.getElementById("nameInput").value;       //get the value of the field with id="nameInput"
+userSchool = document.getElementById("email").value;     //get the value of the field with id="schoolInput"
+userCity = document.getElementById("cityInput").value;       //get the value of the field with id="cityInput"
 
-    //b) update user's document in Firestore
+    //b) update user"s document in Firestore
     currentUser.update({
         name: userName,
         email: userEmail,
@@ -57,6 +57,6 @@ userCity = document.getElementById('cityInput').value;       //get the value of 
         console.log("Document successfully updated!");
     })
     //c) disable edit 
-    document.getElementById('personalInfoFields').disabled = true;
+    document.getElementById("personalInfoFields").disabled = true;
 }
 editUserInfo();

@@ -1,98 +1,14 @@
-const express = require('express');
-const path = require("path");
-
-const app = express();
-const port = 8000;
+const express = require("express");
+const router = express.Router();
+const { ensureAuthenticated } = require("../config/auth");
+const STATUS = require("../util/status");
 
 const vancouverAreaID = 16;
 const searchPath = "hhh";
 const craigslistAPI = `https://sapi.craigslist.org/web/v8/postings/search?lang=en&area_id=${vancouverAreaID}&searchPath=${searchPath}`
 const craigslistListingPage = `https://vancouver.craigslist.org`;
 
-/* This junk doesnt work
-// Params used to search in greater vancouver area
-const marketplaceLat = 49.1936;
-const marketplaceLon = -122.9525;
-const marketplaceRad = 22;
-const marketplacePage = `https://www.facebook.com/marketplace/109571329060695/propertyrentals?exact=false&latitude=${marketplaceLat}&longitude=${marketplaceLon}&radius=${marketplaceRad}`
-*/
-
-const status = {
-  Ok: 200,
-  Unauthorized: 401,
-  NotFound: 404,
-  InternalServerError: 500,
-}
-
-/*** STATIC FILES ***/
-app.use('/static', express.static(path.join(__dirname, 'public')))
-
-/*** ROUTES ***/
-app.get('/', (req, res) => {
-  res.set('Content-Type', 'text/html');
-  res.sendFile(path.join(__dirname, '/views/index.html'));
-  return res.status(status.Ok);
-});
-
-app.get("/login", (req, res) => {
-  res.set('Content-Type', 'text/html');
-  res.sendFile(path.join(__dirname, '/views/login.html'));
-  return res.status(status.Ok);
-});
-
-app.get("/dashboard", (req, res) => {
-  res.set('Content-Type', 'text/html');
-  res.sendFile(path.join(__dirname, '/views/dashboard.html'));
-  return res.status(status.Ok);
-});
-
-app.get("/dashboard/favourites", (req, res) => {
-  res.set('Content-Type', 'text/html');
-  res.sendFile(path.join(__dirname, '/views/favourites.html'));
-  return res.status(status.Ok);
-});
-
-app.get("/dashboard/profile", (req, res) => {
-  res.set('Content-Type', 'text/html');
-  res.sendFile(path.join(__dirname, '/views/profile.html'));
-  return res.status(status.Ok);
-});
-
-app.get("/dashboard/favourites", (req, res) => {
-  res.set('Content-Type', 'text/html');
-  res.sendFile(path.join(__dirname, '/views/favourites.html'));
-  return res.status(status.Ok);
-});
-
-app.get("/dashboard/listing/:area/:category/:seo/:id/:lat/:lon", (req, res) => {
-  res.set('Content-Type', 'text/html');
-  res.sendFile(path.join(__dirname, '/views/listing.html'));
-  return res.status(status.Ok);
-});
-
-/*** API ***/
-
-/*
-
-This junk doesn't work. Why meta got to make it so difficult to scrape
-their stuff?
-
-app.get("/api/listings/meta", async (req, res) => {
-  try {
-    const raw = await fetch(marketplacePage, { method: "GET" }).then(response => response.text());
-
-    console.log(raw);
-
-    return res.status(status.Ok).send("debugging...");
-
-  } catch (error) {
-    console.error(`ERROR: /api/listing/meta -> ${error}`);
-    return res.status(status.InternalServerError).send("Failed to query Meta Marketplace page");
-  }
-});
-*/
-
-app.get("/api/listings", async (req, res) => {
+router.get("/api/listings", async (req, res) => {
   try {
     const raw = await fetch(craigslistAPI, { method: "GET" }).then(response => response.json());
     
@@ -132,16 +48,17 @@ app.get("/api/listings", async (req, res) => {
       listings.data.push(listing);
     }
     
-    res.set('Content-Type', 'application/json');
+    res.set("Content-Type", "application/json");
     res.send(listings);
-    return res.status(status.Ok);
+    return res.status(STATUS.Ok);
   } catch (error) {
     console.error(`ERROR: /api/listing -> ${error}`);
-    return res.status(status.InternalServerError).send("Failed to query Craigslist API");
+    return res.status(STATUS.InternalServerError).send("Failed to query Craigslist API");
   }
 });
 
-app.get("/api/listing/:area/:category/:seo/:id", async (req, res) => {
+
+router.get("/api/listing/:area/:category/:seo/:id", async (req, res) => {
   const area = req.params.area;
   const category = req.params.category;
   const seo = req.params.seo;
@@ -186,23 +103,13 @@ app.get("/api/listing/:area/:category/:seo/:id", async (req, res) => {
       period: period,
     };
     
-    res.set('Content-Type', 'application/json');
+    res.set("Content-Type", "application/json");
     res.send(listing);
-    return res.status(status.Ok);
+    return res.status(STATUS.Ok);
   } catch (error) {
     console.error(`ERROR: /api/listing/${seo}/${id} -> ${error}`);
-    return res.status(status.InternalServerError).send("Failed to query Craigslist listing.");
+    return res.status(STATUS.InternalServerError).send("Failed to query Craigslist listing.");
   }
 });
 
-/*** DEFAULT ***/
-
-app.get("*", (req, res) => {
-  res.set('Content-Type', 'text/html');
-  res.sendFile(path.join(__dirname, '/views/not-found.html'));
-  return res.status(status.NotFound);
-});
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-});
+module.exports = router;

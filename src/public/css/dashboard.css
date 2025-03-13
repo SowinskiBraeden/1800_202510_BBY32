@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
 
 * {
   margin: 0pt;
   padding: 0pt;
   box-sizing: border-box;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   overflow-x: hidden;
 }
 
@@ -16,9 +16,9 @@ body {
 .grid-container {
   display: grid;
   grid-template-areas:
-    'header header header'
-    'main main main'
-    'footer footer footer';
+    "header header header"
+    "main main main"
+    "footer footer footer";
   /* grid-column-gap: 10pt; */
   padding: 0pt;
   margin: 0pt;

@@ -18,7 +18,7 @@ function loadListing() {
     if (listing.sqft != null)
       data = data + ` - ${listing.sqft}ft<sup>2</sup>`
 
-    let room = `${listing.bedrooms} bed${listing.bedrooms > 1 ? 's' : ''}, ${listing.bathrooms} bath.`;
+    let room = `${listing.bedrooms} bed${listing.bedrooms > 1 ? "s" : ""}, ${listing.bathrooms} bath.`;
     document.querySelector(".listing-title").innerHTML = listing.title;
     document.querySelector(".listing-location").innerHTML = listing.location;
     document.querySelector(".listing-data").innerHTML = data;
