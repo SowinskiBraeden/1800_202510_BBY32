@@ -19,17 +19,48 @@
 
   <body>
     
-    <div class="grid-container">
-      <header class="header-container">
-        <form class="search">
-          <div class="search-bar">
-            <input placeholder="Search by Location e.g. Vancouver   "><button>Search</button>
+    <div class="DashBoard">
+
+      <header class="NavBar">
+
+        <div class="NavBarLeft">
+          
+          <img src="/static/images/Comp1800_logo.png" class="Logo">
+          
+          <div class="NavBarLeftIconsBox">
+            <a href="/dashboard" class="NavBarLeftIcons">
+              <img src="/static/icons/house-solid.svg">
+            </a>
+            <a href="/dashboard/favourites" class="NavBarLeftIcons">
+              <img src="/static/icons/heart.svg">
+            </a>
+            <a href="/dashboard/profile" class="NavBarLeftIcons">
+              <img src="/static/icons/profile.svg">
+            <!-- </a>
+            <a href="/dashboard/listing" class="NavBarLeftIcons">
+              <img src="/static/icons/house.svg">
+            </a> -->
           </div>
-          <a href="/dashboard/filters">
-            <p>Filters</p>
-            <i class="fa-solid fa-gear"></i>
-          </a>
+        </div>
+
+        <form class="NavBarRight">
+          <div class="NavBarRightBox">
+            <div class="Search">
+              <input placeholder="Search by Location e.g. Vancouver   "><button>Search</button>
+            </div>
+          </div>
+
+          <div class="NavBarRightBox2"></div>
+            <div class="NavBarRightBox2Inner">
+              <a href="/dashboard/filters" class="Filter">
+                <i class="fa-solid fa-gear"></i>
+                <p>Filters</p>
+              </a>
+            </div>
+          </div>
+
         </form>
+
       </header>
       
       <section class="main">
@@ -60,18 +91,7 @@
   
       <footer class="footer">
         <div class="footer-links">
-          <a href="/dashboard">
-            <img src="/static/icons/house-solid.svg">
-          </a>
-          <a href="/dashboard/favourites">
-            <img src="/static/icons/heart.svg">
-          </a>
-          <a href="/dashboard/profile">
-            <img src="/static/icons/profile.svg">
-          </a>
-          <a href="/dashboard/listing">
-            <img src="/static/icons/house.svg">
-          </a>
+          
         </div>
       </footer>
     </div>
