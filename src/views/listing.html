@@ -6,13 +6,19 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    
+    <!------------------------------------------>
+    <!--          Bootstrap Library           -->
+    <!------------------------------------------>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
 
+    <!-------------------------------------------------------->
+    <!--                 Firebase 8 Library                 -->
+    <!-------------------------------------------------------->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
@@ -20,11 +26,13 @@
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
-    <link rel="stylesheet" href="/static/css/listing.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/css/Listing_Mobile.css">
+    <link rel="stylesheet" href="/static/css/Listing_Desktop.css">
   </head>
 
   <body>
-    
+    <!-- Navbar -->
     <div class="grid-container">
       <header class="header-container">
         <!-- <form class="search">
@@ -39,6 +47,7 @@
         <a href="/dashboard">Back</a>
       </header>
       
+      <!-- Content -->
       <section class="main">
       
         <div class="listing-container" id="listings">
@@ -84,7 +93,8 @@
         </div>
 
       </section>
-  
+      
+      <!-- Footer -->
       <footer class="footer">
         <div class="footer-links">
           <a href="/dashboard">
@@ -103,6 +113,7 @@
       </footer>
     </div>
 
+    <!-- Scripts -->
     <script src="/static/scripts/auth/firebase_config.js"></script>
     <script src="/static/scripts/auth/forwardAuth.js"></script>
     <script src="/static/scripts/api/loadListing.js"></script>

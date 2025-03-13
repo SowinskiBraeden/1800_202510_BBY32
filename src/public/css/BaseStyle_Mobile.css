@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nabla&display=swap");
+@media screen and (min-width: 320px) {
+
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Oswald","Bebas Neue", sans-serif;
+    overflow-x: hidden;
+    }
+
+    #Page {
+    grid-template-columns: 1;
+    grid-template-rows: 2;
+    }
+
+    /*** NavBar ***/
+    .NavBar {
+    background-color: #D20001;
+    grid-column: 1, 2;
+    grid-row: 1, 2;
+    display: flex;
+    padding: 12pt;
+    justify-content: space-between;
+    }
+
+    .NavBarLeft {
+    display: flex;
+    flex-direction: row;
+    }
+
+    .Logo {
+    background-color: #D20001;
+    width: 50pt;
+    height: auto;
+    }
+
+    .links {
+    display: flex;
+    justify-content: space-between;
+    }
+
+    .links a {
+    margin-right: 64pt;
+    text-decoration: none;
+    }
+
+    .links a:hover {
+    text-decoration: underline;
+    }
+
+    .Title {
+    display: flex;
+    flex-direction: column;
+    color: #FEDEB8;
+    justify-content: center;
+    margin-left: 25px;
+    font-size: 35pt;
+    font-family: "Oswald", sans-serif;
+      
+    }
+
+    .NavBarItems {
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+    color: #FEDEB8;
+    margin: 0;
+    justify-content: center;
+    }
+
+    /*** Content ***/
+    .main {
+    grid-column: 1, 2;
+    grid-row: 2, 3;
+    }
+
+    .image-wrap {
+    filter: brightness(70%);
+    position: fixed;
+    }
+
+    .login-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    }
+
+    #firebaseui-auth-container {
+    width: 250pt;
+    }
+
+    .main-content {
+    position: absolute;
+    transform: translate(-25%, -50%);
+    background-color: #D20001;
+    top: 50%;
+    left: 25%;
+    width: 40%;
+    padding: 10pt 24pt 10pt 24pt ;
+    border-radius: 12pt;
+    }
+
+    .details-box {
+    color: #FEDEB8;
+    }
+
+    .details-box h2 {
+    font-size: 2.2vw;
+    font-family: "Bebas Neue" ;
+    letter-spacing: 2px;
+    margin: 0;
+    }
+
+    .details-box p {
+    font-family: arial;
+    font-size: 18px;
+    margin-top: 15px;
+    margin-bottom: 0px;
+    }
+
+    .join-btn {
+    display: inline-block;
+    border: 2px solid #FEDEB8;
+    border-radius: 6px;
+    padding: 11px 40px;
+    margin-top: 25px;
+    transition: 0.8s all;
+    background-color: transparent;
+    color: #FEDEB8;
+    font-size: 18px;
+    text-decoration: none;
+    text-transform: capitalize;
+    }
+
+    .join-btn:hover {
+    background-color: #E64B0A;
+    }
+
+    /*** Footer ***/
+    .Footer {
+    background-color: #FEDEB8;
+    display: flex;
+    z-index: 1;
+    padding: 6pt;
+    justify-content: left;
+    }
+}

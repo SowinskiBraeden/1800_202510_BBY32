@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!------------------------------------------>
-    <!-- Bootstrap Library CSS JS CDN go here -->
+    <!--          Bootstrap Library           -->
     <!------------------------------------------>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -17,7 +17,7 @@
     </script>
 
     <!-------------------------------------------------------->
-    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!--                 Firebase 8 Library                 -->
     <!-------------------------------------------------------->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
@@ -27,11 +27,13 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
     <!-- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script> -->
 
-
-    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/css/BaseStyle_Mobile.css">
+    <link rel="stylesheet" href="/static/css/BaseStyle_Desktop.css">
   </head>
 
   <body>
+    <!-- Navbar -->
     <nav class="NavBar">
       <div>
         <img src="/static/images/Comp1800_logo(no text).png" class="Logo">
@@ -40,12 +42,13 @@
         <a href="/" class="NavBarItems">
           HOME
         </a>
-        <a href="#" class="NavBarItems">
+        <a href="/dashboard" class="NavBarItems">
           ABOUT
         </a>
       </div>
     </nav>
 
+    <!-- Content -->
     <div class='main'>
       <div class='image-box'>
 
@@ -61,9 +64,10 @@
       </div>
     </div>
 
-    <!-- our own footer goes here-->
+    <!-- Footer -->
     <nav id="footerPlaceholder"></nav>
 
+    <!-- Scripts -->
     <script src="/static/scripts/auth/firebase_config.js"></script>
     <script src="/static/scripts/auth/forwardAuth.js"></script>
     <script src="/static/scripts/auth/authentication.js"></script>
