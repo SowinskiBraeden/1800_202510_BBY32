@@ -2,11 +2,11 @@
   "name": "hoser-housing",
   "version": "1.0.0",
   "description": "Find Housing for Hosers",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node src/app.js",
     "dev": "nodemon src/app.js"
-  },
+    },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SowinskiBraeden/1800_202510_BBY32.git"
@@ -18,11 +18,7 @@
   },
   "homepage": "https://github.com/SowinskiBraeden/1800_202510_BBY32#readme",
   "dependencies": {
-    "connect-flash": "^0.1.1",
-    "express": "^4.21.2",
-    "express-session": "^1.18.1",
-    "passport": "^0.7.0",
-    "passport-local": "^1.0.0"
+    "express": "^4.21.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"

@@ -1,50 +1,26 @@
-// Initialize the FirebaseUI Widget using Firebase.
-var ui = new firebaseui.auth.AuthUI(firebase.auth());
-var uiConfig = {
-  callbacks: {
-    signInSuccessWithAuthResult: function(authResult, redirectUrl, form) {
+function isAuthenticated() {
+  let url = window.location.href;
+  if (url.includes("login")) {
+    firebase.auth().onAuthStateChanged(user => {
+      // redirect to dashboard if user is already authenticated
+      if (user) {
+        window.location.href = "/dashboard";
+      }
+    });
+  } else if (url.includes("dashboard")) {
+    firebase.auth().onAuthStateChanged(user => {
+      // redirect to dashboard if user is already authenticated
+      if (!user) {
+        window.location.href = "/login";
+      }
+    });
+  }
+}
 
-      var user = authResult.user;
-        if (authResult.additionalUserInfo.isNewUser) { 
-            db.collection("users").doc(user.uid).set({ 
-                   name: user.displayName,
-                   email: user.email,
-                   city: form.city,
-                   address: form.address,
-                   zip: form.zip
-            }).then(function () {
-                   console.log("New user added to firestore");
-                   window.location.assign("dashboard.html");       //re-direct to main.html after signup
-            }).catch(function (error) {
-                   console.log("Error adding new user: " + error);
-            });
-        } else {
-            return true;
-        }
-            return false;
-        },
-    uiShown: function() {
-      // The widget is rendered.
-      // Hide the loader.
-      document.getElementById("loader").style.display = "none";
-    }
-  },
-  // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-  signInFlow: "popup",
-  signInSuccessUrl: "dashboard",
-  signInOptions: [
-    // Leave the lines as is for the providers you want to offer your users.
-    // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-    // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-    // firebase.auth.GithubAuthProvider.PROVIDER_ID,
-    firebase.auth.EmailAuthProvider.PROVIDER_ID,
-    // firebase.auth.PhoneAuthProvider.PROVIDER_ID
-  ],
-  //Terms of service url.
-  tosUrl: "<your-tos-url>",
-  // Privacy policy url.
-   privacyPolicyUrl: "<your-privacy-policy-url>"
-};
+isAuthenticated();
 
-ui.start("#firebaseui-auth-container", uiConfig);
+function logout() {
+  firebase.auth().signOut().catch((error) => {
+      console.error(error);
+  });
+}
