@@ -1,5 +1,5 @@
 function getListings() {
-  let coords = [];
+  
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function() {
     const listings = JSON.parse(this.response).data;
