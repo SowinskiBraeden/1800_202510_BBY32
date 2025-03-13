@@ -24,7 +24,8 @@ function loadListing() {
     document.querySelector(".listing-data").innerHTML = data;
     document.querySelector(".listing-data-1").innerHTML =  room;
     document.querySelector(".listing-description").innerHTML = listing.description;
-    document.querySelector(".listing-preview").src = listing.images[0];
+    if (listing.images.length > 0)
+      document.querySelector(".listing-preview").src = listing.images[0];
     document.querySelector(".map-embed").src = `http://maps.google.com/maps?q=${lat},${lon}&z=15&output=embed`
   }
   xhttp.open("GET", `/api/listing/${area}/${category}/${seo}/${id}`);

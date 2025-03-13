@@ -7,6 +7,8 @@ function getListings() {
     let cardTemplate = document.getElementById("listing-template");
 
     for (let i = 0; i < listings.length; i++) {
+      if (!listings[i].priceStr) continue;
+      
       let card = cardTemplate.content.cloneNode(true);
 
       let redirect = `/dashboard/listing/${listings[i].area}/${listings[i].category}/${listings[i].seo}/${listings[i].id}/${listings[i].location.lat}/${listings[i].location.lon}`;

@@ -72,7 +72,9 @@ router.get("/listing/:area/:category/:seo/:id", async (req, res) => {
     const stupidPadding = 17;
     let title = raw.split("id=\"titletextonly\">")[1].split("</span>")[0];
     let location = raw.split("id=\"titletextonly\">")[1].split("</span>")[1].substring(7);
-    let images = raw.split("<div id=\"thumbs\">")[1].split("</div>")[0].split("href=\"")
+    let images = [];
+    if (raw.includes("<div id=\"thumbs\">"))
+      images = raw.split("<div id=\"thumbs\">")[1].split("</div>")[0].split("href=\"")
     images.shift()
     images = images.map((url) => url.split("\"")[0]);
     let price = raw.split("class=\"price\">")[1].split("</span>")[0];
@@ -87,7 +89,7 @@ router.get("/listing/:area/:category/:seo/:id", async (req, res) => {
     attributes = attributes.map((attr) => attr.split(">")[1].split("</a")[0]);
     let address = raw.split("<div class=\"mapbox\">")[1].includes("<div class=\"mapaddress\">") ? raw.split("<div class=\"mapbox\">")[1].split("<div class=\"mapaddress\">")[1].split("</div>")[0] : null;
     let period = raw.split("class=\"attrgroup\">")[2].split("<a href=\"")[1].split(">")[1].split("</a")[0];
-
+    
     let listing = {
       title: title,
       location: location,
