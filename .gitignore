@@ -1,3 +1,2 @@
 # Node modules 
 /node_modules/*
-/src/public/scripts/auth/firebase_config.js
