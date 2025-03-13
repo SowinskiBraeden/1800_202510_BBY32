@@ -19,48 +19,17 @@
 
   <body>
     
-    <div class="DashBoard">
-
-      <header class="NavBar">
-
-        <div class="NavBarLeft">
-          
-          <img src="/static/images/Comp1800_logo.png" class="Logo">
-          
-          <div class="NavBarLeftIconsBox">
-            <a href="/dashboard" class="NavBarLeftIcons">
-              <img src="/static/icons/house-solid.svg">
-            </a>
-            <a href="/dashboard/favourites" class="NavBarLeftIcons">
-              <img src="/static/icons/heart.svg">
-            </a>
-            <a href="/dashboard/profile" class="NavBarLeftIcons">
-              <img src="/static/icons/profile.svg">
-            <!-- </a>
-            <a href="/dashboard/listing" class="NavBarLeftIcons">
-              <img src="/static/icons/house.svg">
-            </a> -->
+    <div class="grid-container">
+      <header class="header-container">
+        <form class="search">
+          <div class="search-bar">
+            <input placeholder="Search by Location e.g. Vancouver   "><button>Search</button>
           </div>
-        </div>
-
-        <form class="NavBarRight">
-          <div class="NavBarRightBox">
-            <div class="Search">
-              <input placeholder="Search by Location e.g. Vancouver   "><button>Search</button>
-            </div>
-          </div>
-
-          <div class="NavBarRightBox2"></div>
-            <div class="NavBarRightBox2Inner">
-              <a href="/dashboard/filters" class="Filter">
-                <i class="fa-solid fa-gear"></i>
-                <p>Filters</p>
-              </a>
-            </div>
-          </div>
-
+          <a href="/dashboard/filters">
+            <p>Filters</p>
+            <i class="fa-solid fa-gear"></i>
+          </a>
         </form>
-
       </header>
       
       <section class="main">
@@ -91,7 +60,18 @@
   
       <footer class="footer">
         <div class="footer-links">
-          
+          <a href="/dashboard">
+            <img src="/static/icons/house-solid.svg">
+          </a>
+          <a href="/dashboard/favourites">
+            <img src="/static/icons/heart.svg">
+          </a>
+          <a href="/dashboard/profile">
+            <img src="/static/icons/profile.svg">
+          </a>
+          <a href="/dashboard/listing">
+            <img src="/static/icons/house.svg">
+          </a>
         </div>
       </footer>
     </div>
@@ -99,6 +79,5 @@
     <script src="/static/scripts/firebaseAPI_TEAM32.js"></script>
     <script src="/static/scripts/logout.js"></script>
     <script type="module" src="/static/scripts/loadFullListings.js"></script>
-    <script src="/static/scripts/authentication.js"></script>
   </body>
 </html>
