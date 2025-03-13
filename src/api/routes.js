@@ -12,7 +12,7 @@ module.exports = (app) => {
       
       // Parse craigslist housing list into our own data structure
       let listings = { data: [] };
-      
+
       for (let i = 0; i < raw.data.items.length; i++) {
         let item = raw.data.items[i];
         

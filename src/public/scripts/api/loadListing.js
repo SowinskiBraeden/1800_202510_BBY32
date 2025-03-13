@@ -12,8 +12,6 @@ function loadListing() {
   xhttp.onload = function() {
     let listing = JSON.parse(this.response);
 
-    console.log(listing);
-
     let data = `${listing.price}`;
     if (listing.sqft != null)
       data = data + ` - ${listing.sqft}ft<sup>2</sup>`

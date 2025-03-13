@@ -17,9 +17,9 @@ var uiConfig = {
           saved: [],
         }).then(() => {
           // Send to profile and prompt for additional details
-          window.location.assign("/dashboard/profile?new=true");
+          window.location.assign("/dashboard/signup");
         }).catch((err) => {
-          console.error(`Error creating user: ${err}`);
+          console.error(`Error creating user: ${err}`);0
         })
       } else {
         // authenticated but not new user
