@@ -65,8 +65,8 @@ module.exports = (app) => {
       const listingURL = `${craigslistListingPage}/${area}/${category}/d/${seo}/${id}.html`;
       // console.log(listingURL);
       const raw = await fetch(listingURL, { method: "GET" }).then(response => response.text());
-
       const stupidPadding = 17;
+
       let title = raw.split("id=\"titletextonly\">")[1].split("</span>")[0];
       let location = raw.split("id=\"titletextonly\">")[1].split("</span>")[1].substring(7);
       let images = [];
@@ -77,11 +77,16 @@ module.exports = (app) => {
       let price = raw.split("class=\"price\">")[1].split("</span>")[0];
       let available = raw.split("class=\"attrgroup\">")[1].includes("available") ? raw.split("class=\"attrgroup\">")[1].split("available ")[1].split("\n")[0] : null;
       let sqft = raw.includes("ft<sup>2</sup>") ? parseInt(raw.split("class=\"attrgroup\">")[1].split("<span class=\"attr important\">")[2].substring(stupidPadding).split("ft")[0]) : null;
-      let bedrooms = parseInt(raw.split("class=\"attrgroup\">")[1].split("<span class=\"attr important\">")[1].substring(stupidPadding).split("BR")[0]);
-      let bathrooms = raw.split("class=\"attrgroup\">")[1].split("<span class=\"attr important\">")[1].split("/ ")[1].split("Ba")[0];
-      if (bathrooms != "shared") bathrooms = parseInt(bathrooms);
+      let bedrooms = "N/A";
+      if (raw.split("class=\"attrgroup\">")[1].includes("BR"))
+        bedrooms = parseInt(raw.split("class=\"attrgroup\">")[1].split("<span class=\"attr important\">")[1].substring(stupidPadding).split("BR")[0]);
+      let bathrooms = "N/A";
+      if (raw.split("class=\"attrgroup\">")[1].includes("Ba"))
+        bathrooms = raw.split("class=\"attrgroup\">")[1].split("<span class=\"attr important\">")[1].split("/ ")[1].split("Ba")[0];
+      if (bathrooms != "shared" && bathrooms != "N/A") bathrooms = parseInt(bathrooms);
       let description = raw.split("id=\"postingbody\"")[1].split("</div>")[2].split("</section>")[0].replaceAll("<br>", "").substring(1);
-      let attributes = raw.split("class=\"attrgroup\">")[3].split("<section id=\"postingbody\">")[0].split("<a href=\"");
+      let splitIdx = (bedrooms != "N/A" && bathrooms != "N/A") ? 3 : 2;
+      let attributes = raw.split("class=\"attrgroup\">")[splitIdx].split("<section id=\"postingbody\">")[0].split("<a href=\"");
       attributes.shift();
       attributes = attributes.map((attr) => attr.split(">")[1].split("</a")[0]);
       let address = raw.split("<div class=\"mapbox\">")[1].includes("<div class=\"mapaddress\">") ? raw.split("<div class=\"mapbox\">")[1].split("<div class=\"mapaddress\">")[1].split("</div>")[0] : null;
