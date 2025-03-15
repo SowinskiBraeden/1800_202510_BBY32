@@ -7,18 +7,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!------------------------------------------>
-    <!--          Bootstrap Library           -->
-    <!------------------------------------------>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
 
-    <!-------------------------------------------------------->
-    <!--                 Firebase 8 Library                 -->
-    <!-------------------------------------------------------->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
@@ -32,44 +26,74 @@
   </head>
 
   <body>
+    <!-- filters model -->
+    <div id="myModal" class="modal">
+
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="filters-wrapper">
+          <div class="filters-content">
+            <label>Max Distance (km)</label>
+            <input type="number" placeholder="30km" id="distance" value="">
+  
+            <label>Max price</label>
+            <input type="number" placeholder="$" id="price" value="">
+  
+            <label>Minimum Bedrooms</label>
+            <input type="number" placeholder="min" id="bedrooms" value="">
+  
+            <label>Minimum Bathrooms</label>
+            <input type="number" placeholder="min" id="bathrooms" value="">
+  
+            <label>Minimum Square feet</label>
+            <input type="number" placeholder="min" id="sqft" value="">
+  
+            <button id="apply" onclick="getListings()" type="submit">Apply</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
     <!-- NavBar -->
     <div class="grid-container">
       <header class="header-container">
-        <form class="search">
+        <div class="search">
           <div class="search-bar">
-            <input placeholder="Search by Location e.g. Vancouver   "><button>Search</button>
+            <input id="search" placeholder="Search housing   " value=""><button onclick="getListings()">Search</button>
           </div>
-          <a href="/dashboard/filters">
+          <button id="filters" class="filters-btn">
             <p>Filters</p>
             <i class="fa-solid fa-gear"></i>
-          </a>
-        </form>
+          </button>
+        </div>
       </header>
       
       <!-- Content -->
       <section class="main">
-      
-        <div class="listing-container" id="listings">
-        
-          <template id="listing-template">
-            <div class="listing">
-              <a class="listing-link" href="">
-                <div class="listing-content">
-                  <div class="listing-image">
-                    <img class="listing-preview" src="https://dummyimage.com/600x450/919191/ededed&text=No+images+found" alt=""/>
-                  </div>
-                  <div  class="listing-details">
-                    <h3 class="listing-title">Title</h3>
-                    <h3 class="listing-location">Location</h3>
-                    <p  class="listing-data">$1,000 - 800sqft</p>
-                    <p  class="listing-description">big description of house yes</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </template>
 
-        </div>
+        <div class="loader"></div>
+        
+        <template id="listing-template">
+          <div class="listing">
+            <a class="listing-link" href="">
+              <div class="listing-content">
+                <div class="listing-image">
+                  <img class="listing-preview" src="https://dummyimage.com/600x450/919191/ededed&text=No+images+found" alt=""/>
+                </div>
+                <div  class="listing-details">
+                  <h3 class="listing-title">Title</h3>
+                  <h3 class="listing-location">Location</h3>
+                  <p  class="listing-data">$1,000 - 800sqft</p>
+                  <p  class="listing-description">big description of house yes</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </template>
+
+        <div class="listing-container" id="listings"></div>
 
       </section>
       
@@ -93,5 +117,26 @@
     <script src="/static/scripts/auth/firebase_config.js"></script>
     <script src="/static/scripts/auth/forwardAuth.js"></script>
     <script src="/static/scripts/api/loadListingsArray.js"></script>
+
+    <!-- filters modal popul -->
+    <script>
+      let modal = document.getElementById("myModal");
+      let btn = document.getElementById("filters");
+      let span = document.getElementsByClassName("close")[0];
+
+      btn.onclick = function() {
+        modal.style.display = "block";
+      }
+
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+
+      window.onclick = (event) => {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      } 
+    </script>
   </body>
 </html>

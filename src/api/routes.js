@@ -8,7 +8,16 @@ const craigslistListingPage = `https://vancouver.craigslist.org`;
 module.exports = (app) => { 
   app.get("/api/listings", async (req, res) => {
     try {
-      const raw = await fetch(craigslistAPI, { method: "GET" }).then(response => response.json());
+      const search    = req.query.query         ? `&query=${req.query.query}`                : "";
+      const max_price = req.query.max_price     ? `&max_price=${req.query.max_price}`         : "";
+      const min_bed   = req.query.min_bedrooms  ? `&min_bedrooms=${req.query.min_bedrooms}`   : "";
+      const min_bath  = req.query.min_bathrooms ? `&min_bathrooms=${req.query.min_bathrooms}` : "";
+      const max_dist  = req.query.max_distance  ? `&max_distance=${req.query.max_distance}`   : "";
+      const min_sqft  = req.query.minSqft       ? `&minSqft=${req.query.minSqft}`             : "";
+
+      const queryAPIFilters = `${craigslistAPI}${search}${max_price}${min_bed}${min_bath}${max_dist}${min_sqft}`;
+
+      const raw = await fetch(queryAPIFilters, { method: "GET" }).then(response => response.json());
       
       // Parse craigslist housing list into our own data structure
       let listings = { data: [] };
