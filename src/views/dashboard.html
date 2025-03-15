@@ -21,8 +21,8 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/static/css/Dashboard_Mobile.css">
     <link rel="stylesheet" href="/static/css/Dashboard_Desktop.css">
+    <!-- <link rel="stylesheet" href="/static/css/Dashboard_Mobile.css"> -->
   </head>
 
   <body>
@@ -65,7 +65,7 @@
           </div>
           <button id="filters" class="filters-btn">
             <p>Filters</p>
-            <i class="fa-solid fa-gear"></i>
+            <img src="/static/icons/filter.svg">
           </button>
         </div>
       </header>
@@ -73,7 +73,13 @@
       <!-- Content -->
       <section class="main">
 
-        <div class="loader"></div>
+        <div class="loader-container">
+          <div class="loader-flex c">
+            <div class="loader-flex r">
+              <div class="loader"></div>
+            </div>
+          </div>
+        </div>
         
         <template id="listing-template">
           <div class="listing">

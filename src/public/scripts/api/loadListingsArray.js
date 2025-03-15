@@ -6,6 +6,7 @@ function getListings() {
 
   // Reset listings
   document.getElementById("listings").innerHTML = "";
+  document.getElementsByClassName("loader-container")[0].style.display = "block";
   document.getElementsByClassName("loader")[0].style.display = "block";
 
   const xhttp = new XMLHttpRequest();
@@ -32,6 +33,7 @@ function getListings() {
         card.querySelector(".listing-preview").src = listings[i].images[0];
       }
 
+      document.getElementsByClassName("loader-container")[0].style.display = "none";
       document.getElementsByClassName("loader")[0].style.display = "none";
       document.getElementById("listings").appendChild(card);
     }
