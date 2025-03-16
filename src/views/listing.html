@@ -27,24 +27,15 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/static/css/Listing_Mobile.css">
     <link rel="stylesheet" href="/static/css/Listing_Desktop.css">
+    <!-- <link rel="stylesheet" href="/static/css/Listing_Mobile.css"> -->
   </head>
 
   <body>
     <!-- Navbar -->
     <div class="grid-container">
       <header class="header-container">
-        <!-- <form class="search">
-          <div class="search-bar">
-            <input placeholder="Search by Location e.g. Vancouver   "><button>Search</button>
-          </div>
-          <a href="/dashboard/filters">
-            <p>Filters</p>
-            <i class="fa-solid fa-gear"></i>
-          </a>
-        </form> -->
-        <a href="/dashboard">Back</a>
+        <a class="back-btn" href="/dashboard">Back</a>
       </header>
       
       <!-- Content -->
@@ -55,9 +46,20 @@
           <!-- <template id="listing-template"> -->
             <div class="listing">
               <div class="listing-content">
-                <div>
-                  <h2 class="listing-title">Title</h2>
-                  <h2 class="listing-location">Location</h2>
+                <div class="listing-header">
+                  <div class="listing-header-left">
+                    <h2 class="listing-title">Title</h2>
+                    <h2 class="listing-location">Location</h2>
+                  </div>
+                  <div class="listing-header-right">
+                    <div>
+                      <div>
+                        <a title="favourite" href="#">
+                          <img src="/static/icons/heart.svg">
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div class="listing-image">
                   <div class="listing-image-left">
