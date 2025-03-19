@@ -27,93 +27,113 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!-- CSS -->
+    <!-- <link rel="stylesheet" href="/static/css/Listing_Mobile.css"> --> 
     <link rel="stylesheet" href="/static/css/Listing_Desktop.css">
-    <!-- <link rel="stylesheet" href="/static/css/Listing_Mobile.css"> -->
   </head>
 
-  <body>
-    <!-- Navbar -->
-    <div class="grid-container">
-      <header class="header-container">
-        <a class="back-btn" href="/dashboard">Back</a>
-      </header>
+  <body id="Page">
+    <div class="cover">
+      <!-- Header -->
+      <div class="header">
+        <img src="/static/images/Comp1800_logo.png" class="Logo">
+
+        <div class="search_bar_box">
+          <div class="search_bar">
+            <div class="search">
+              <input id="Search_input" placeholder="Search housing" value="">
+              <button onclick="getListings()">Search</button>
+            </div>
+            <button id="Filter">
+              <p>Filters</p>
+              <img src="/static/icons/filter.svg">
+            </button>
+          </div>
+        </div>
+        <div class="logout_box">
+          <button class="logout">
+            <a onclick="logout()" href="/login">Logout</a>
+          </button>
+        </div>
+      </div>
+      <!-- NavBar -->
+      <nav class="NavBar">
+        <a href="/dashboard">
+          <img src="/static/icons/house.svg">
+        </a>
+        <a href="/dashboard/favourites">
+          <img src="/static/icons/heart.svg">
+        </a>
+        <a href="/dashboard/profile">
+          <img src="/static/icons/profile-solid.svg">
+        </a>
+      </nav>
+  </div>
       
-      <!-- Content -->
-      <section class="main">
+    <!-- Content -->
+    <section class="main">
+    
+      <div class="listing-container" id="listings">
       
-        <div class="listing-container" id="listings">
-        
-          <!-- <template id="listing-template"> -->
-            <div class="listing">
-              <div class="listing-content">
-                <div class="listing-header">
-                  <div class="listing-header-left">
-                    <h2 class="listing-title">Title</h2>
-                    <h2 class="listing-location">Location</h2>
-                  </div>
-                  <div class="listing-header-right">
+        <!-- <template id="listing-template"> -->
+          <div class="listing">
+            <div class="listing-content">
+              <div class="listing-header">
+                <div class="listing-header-left">
+                  <h2 class="listing-title">Title</h2>
+                  <h2 class="listing-location">Location</h2>
+                </div>
+                <div class="listing-header-right">
+                  <div>
                     <div>
-                      <div>
-                        <a title="favourite" href="#">
-                          <img src="/static/icons/heart.svg">
-                        </a>
-                      </div>
+                      <a title="favourite" href="#">
+                        <img src="/static/icons/heart.svg">
+                      </a>
                     </div>
                   </div>
                 </div>
-                <div class="listing-image">
-                  <div class="listing-image-left">
-                    <img class="listing-preview" src="https://dummyimage.com/600x450/919191/ededed&text=No+images+found" alt=""/>
-                  </div>
-                  <div class="map">
-                    <iframe
-                      class="map-embed"
-                      width="374" 
-                      height="440" 
-                      frameborder="0" 
-                      scrolling="no" 
-                      marginheight="0" 
-                      marginwidth="0" 
-                      id="gmap_canvas" 
-                      src="https://maps.google.com/maps?hl=en&amp;q=%20Burnaby&amp;output=embed">>
-                    </iframe>
-                  </div>
+              </div>
+              <div class="listing-image">
+                <div class="listing-image-left">
+                  <img class="listing-preview" src="https://dummyimage.com/600x450/919191/ededed&text=No+images+found" alt=""/>
                 </div>
-                <div class="listing-details">
-                  <div class="listing-details-left">
-                    <p class="listing-description">big description of house yes</p>
-                  </div>
-                  <div class="listing-details-right">
-                    <h3 class="listing-data">$dollars - feet</h3>
-                    <h3 class="listing-data-1"></h3>
-                  </div>
+                <div class="map">
+                  <iframe
+                    class="map-embed"
+                    width="374" 
+                    height="440" 
+                    frameborder="0" 
+                    scrolling="no" 
+                    marginheight="0" 
+                    marginwidth="0" 
+                    id="gmap_canvas" 
+                    src="https://maps.google.com/maps?hl=en&amp;q=%20Burnaby&amp;output=embed">>
+                  </iframe>
+                </div>
+              </div>
+              <div class="listing-details">
+                <div class="listing-details-left">
+                  <p class="listing-description">big description of house yes</p>
+                </div>
+                <div class="listing-details-right">
+                  <h3 class="listing-data">$dollars - feet</h3>
+                  <h3 class="listing-data-1"></h3>
                 </div>
               </div>
             </div>
-          <!-- </template> -->
+          </div>
+        <!-- </template> -->
 
-        </div>
+      </div>
 
-      </section>
+    </section>
       
-      <!-- Footer -->
-      <footer class="footer">
-        <div class="footer-links">
-          <a href="/dashboard">
-            <img src="/static/icons/house-solid.svg">
-          </a>
-          <a href="/dashboard/favourites">
-            <img src="/static/icons/heart.svg">
-          </a>
-          <a href="/dashboard/profile">
-            <img src="/static/icons/profile.svg">
-          </a>
-          <a href="/dashboard/listing">
-            <img src="/static/icons/house.svg">
-          </a>
-        </div>
-      </footer>
-    </div>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-links">
+        
+      </div>
+    </footer>
+ 
 
     <!-- Scripts -->
     <script src="/static/scripts/auth/firebase_config.js"></script>

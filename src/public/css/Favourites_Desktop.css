@@ -1,20 +1,138 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nabla&display=swap");
 @media screen and (min-width: 961px) {
 
     * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Oswald", sans-serif;
-    overflow-x: hidden;
+    font-family: "Oswald","Bebas Neue", sans-serif;
+    text-decoration: none;
+    /* overflow-x: hidden; */
+    }
+
+    #Page {
+        grid-template-columns: 100%;
+        grid-template-rows: 10% 90%;
+        }
+
+    .cover {
+        position: relative;
+    }
+
+    /*** Header ***/
+    .header {
+
+      background-color: #D20001;
+      display: flex;
+      flex-direction: row;
+      width: 100vw;
+      height: 10vh;
+      justify-content: space-between;
+    }
+    .logo {
+      max-width: 100%;
+    }
+
+    .search_bar_box {
+      /* background-color: #E64B0A; */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 460px;
+    }
+
+    .search_bar {
+      /* background-color: #E64B0A; */
+      display: flex;
+      flex-direction: row;
+      height: 50px;
+    }
+
+    .search {
+      /* background-color: #E64B0A; */
+      display: flex;
+      flex-direction: row;
+      
+    }
+
+    #Search_input {
+      background-color: white;
+      border-top-left-radius: 30px;
+      border-bottom-left-radius: 30px;
+      border: 0px;
+      padding: 0px 10px 0px 0px;
+      text-align: right;
+      width: 300px;
+    }
+
+    .search button {
+      background-color: gainsboro;
+      border: 0px;
+      padding: 0px 10px 0px 10px;
+    }
+
+    #Filter {
+      background-color: #FEDEB8;
+      display: flex;
+      flex-direction: row;
+      border-top-right-radius: 30px;
+      border-bottom-right-radius: 30px;
+      border: 0px;
+      width: 100%;
+    }
+
+    #Filter p {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 0px 0px 0px 10px;
+      padding: 0px 0px 0px 0px;
+    }
+
+    #Filter img {
+      scale: 60%;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    .logout_box {
+      /* background-color: #E64B0A; */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .logout {
+      background-color: white;
+      height: 50px;
+      padding: 0px 30px 0px 30px;
+      border-top-left-radius: 30px;
+      border-bottom-left-radius: 30px;
+      border-top-right-radius: 30px;
+      border-bottom-right-radius: 30px;
+      border: 0px;
+    }
+
+    .logout a {
+      text-decoration: none;
+      color: #000;
     }
 
     /*** NavBar ***/
-    #header {
-    background-color:#bbb;
-    bottom: 99%;
-    display: block;
-    padding: 2pt;
+    .NavBar {
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      background-color: #D20001;
+    }
+    .NavBar img {
+      max-height: 100%;
+      scale: 90%;
+      margin: 0px 2px 0px 2px ;
+    }
+    .NavBar a {
+      text-decoration: none;
     }
 
     /*** Content ***/
@@ -38,37 +156,5 @@
     }
 
     /*** Footer ***/
-    .footer {
-    /* grid-area: footer; */
-    background-color: #bbb;
-    width: 100%;
-    height: 128pt;
-    bottom: 0%;
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    }
-
-    .footer-links {
-    height: 80%;
-    display: flex;
-    justify-content: space-between;
-    }
-
-    .footer a {
-    width: 30%;
-    height: 100%;
-    position: relative;
-    }
-
-    .footer img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    overflow-y: hidden;
-    color: black;
-    }
-
+    
 }

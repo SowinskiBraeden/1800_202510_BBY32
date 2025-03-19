@@ -28,26 +28,30 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     
     <!-- CSS -->
-    <link rel="stylesheet" href="/static/css/BaseStyle_Mobile.css">
+    <!-- <link rel="stylesheet" href="/static/css/BaseStyle_Mobile.css"> -->
     <link rel="stylesheet" href="/static/css/BaseStyle_Desktop.css">
     <link rel="stylesheet" href="/static/css/Login.css">
   </head>
 
-  <body>
-    <!-- NavBar -->
-    <nav class="NavBar">
-      <div>
+  <body id="Page">
+    <div class="cover">
+      <!-- Header -->
+      <div class="header">
         <img src="/static/images/Comp1800_logo(no text).png" class="Logo">
+        <h1 style="overflow-y:hidden;" class="Title">Hoser Housing</h1>
       </div>
-      <div class="links">
-        <a href="/" class="NavBarItems">
-          HOME
-        </a>
-        <a href="#" class="NavBarItems">
-          ABOUT
-        </a>
-      </div>
-    </nav>
+      <!-- NavBar -->
+      <nav class="NavBar">
+        <div class="links">
+          <a href="/" class="NavBarItems">
+            HOME
+          </a>
+          <a href="#" class="NavBarItems">
+            ABOUT
+          </a>
+        </div>
+      </nav>
+    </div>
     
     <!-- Content -->
     <div class="main">
@@ -109,7 +113,11 @@
     </div>
 
     <!-- Footer -->
-    <nav id="footerPlaceholder"></nav>
+    <footer class="footer">
+      <div class="footer-links">
+        
+      </div>
+    </footer>
 
     <!-- Scripts -->
     <script src="/static/scripts/auth/firebase_config.js"></script>

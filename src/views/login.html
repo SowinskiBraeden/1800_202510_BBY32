@@ -25,28 +25,35 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
-    <!-- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script> -->
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/static/css/BaseStyle_Mobile.css">
+    <!-- <link rel="stylesheet" href="/static/css/BaseStyle_Mobile.css"> -->
     <link rel="stylesheet" href="/static/css/BaseStyle_Desktop.css">
   </head>
 
-  <body>
-    <!-- Navbar -->
-    <nav class="NavBar">
-      <div>
+  <body id="Page">
+    <div class="cover">
+      <!-- Header -->
+      <div class="header">
         <img src="/static/images/Comp1800_logo(no text).png" class="Logo">
+        <div class="titlebox">
+          <h1 style="overflow-y:hidden;" class="Title">Hoser Housing</h1>
+        </div>
       </div>
-      <div class="links">
-        <a href="/" class="NavBarItems">
-          HOME
-        </a>
-        <a href="/dashboard" class="NavBarItems">
-          ABOUT
-        </a>
-      </div>
-    </nav>
+      <!-- NavBar -->
+      <nav class="NavBar">
+        <div class="NavBarItemsBox">
+          <a href="/" class="NavBarItems">
+            HOME
+          </a>
+        </div>
+        <div class="NavBarItemsBox">
+          <a href="#" class="NavBarItems">
+            ABOUT
+          </a>
+        </div>
+      </nav>
+    </div>
 
     <!-- Content -->
     <div class='main'>
@@ -65,7 +72,11 @@
     </div>
 
     <!-- Footer -->
-    <nav id="footerPlaceholder"></nav>
+    <footer class="footer">
+      <div class="footer-links">
+        
+      </div>
+    </footer>
 
     <!-- Scripts -->
     <script src="/static/scripts/auth/firebase_config.js"></script>

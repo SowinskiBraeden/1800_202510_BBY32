@@ -27,15 +27,47 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/static/css/Favourites_Mobile.css">
+    <!-- <link rel="stylesheet" href="/static/css/Favourites_Mobile.css"> -->
     <link rel="stylesheet" href="/static/css/Favourites_Desktop.css">
   </head>
 
-  <body>
-    <!-- NavBar -->
-    <div id="header">
-    <a onclick="logout()" href="/login">Logout</a>
-    </div>
+  <body id="Page">
+    <div class="cover">
+      <!-- Header -->
+      <div class="header">
+        <img src="/static/images/Comp1800_logo.png" class="Logo">
+
+        <div class="search_bar_box">
+          <div class="search_bar">
+            <div class="search">
+              <input id="Search_input" placeholder="Search housing" value="">
+              <button onclick="getListings()">Search</button>
+            </div>
+            <button id="Filter">
+              <p>Filters</p>
+              <img src="/static/icons/filter.svg">
+            </button>
+          </div>
+        </div>
+        <div class="logout_box">
+          <button class="logout">
+            <a onclick="logout()" href="/login">Logout</a>
+          </button>
+        </div>
+      </div>
+      <!-- NavBar -->
+      <nav class="NavBar">
+        <a href="/dashboard">
+          <img src="/static/icons/house.svg">
+        </a>
+        <a href="/dashboard/favourites">
+          <img src="/static/icons/heart.svg">
+        </a>
+        <a href="/dashboard/profile">
+          <img src="/static/icons/profile-solid.svg">
+        </a>
+      </nav>
+  </div>
 
     <!-- Content -->
     <div id="favContent">
@@ -80,15 +112,7 @@
     <!-- Footer -->
     <footer class="footer">
       <div class="footer-links">
-        <a href="/dashboard">
-          <img src="/static/icons/house.svg">
-        </a>
-        <a href="/dashboard/favourites">
-          <img src="/static/icons/heart-solid.svg">
-        </a>
-        <a href="/dashboard/profile">
-          <img src="/static/icons/profile.svg">
-        </a>
+        
       </div>
     </footer>
 

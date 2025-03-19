@@ -7,67 +7,67 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Oswald","Bebas Neue", sans-serif;
-    overflow-x: hidden;
+    text-decoration: none;
+    /* overflow-x: hidden; */
     }
 
     #Page {
-    grid-template-columns: 1;
-    grid-template-rows: 2;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 90%;
+    }
+
+    .cover {
+        position: relative;
+    }
+
+    /*** Header ***/
+    .header {
+        grid-column: 1, 2;
+        grid-row: 1, 2;     
+        background-color: #D20001;
+        display: flex;
+        flex-direction: row;
+        width: 100vw;
+        height: 10vh;
+        justify-content: left;
+    }
+    .logo {
+        max-width: 100%;
+    }
+    .titlebox {
+        /* background-color: #E64B0A; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .Title {
+        color: #FEDEB8;
+        font-family: "Bebas Neue";
+        font-size: 4em;
+        margin: 0px 0px 0px 10px ;
+   
     }
 
     /*** NavBar ***/
     .NavBar {
-    background-color: #D20001;
     grid-column: 1, 2;
     grid-row: 1, 2;
-    display: flex;
-    padding: 12pt;
-    justify-content: space-between;
-    }
-
-    .NavBarLeft {
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    /* background-color: #E64B0A; */
     display: flex;
     flex-direction: row;
     }
-
-    .Logo {
-    background-color: #D20001;
-    width: 50pt;
-    height: auto;
+    .NavBarItemsBox {
+        margin: 0px 5px 0px 5px ;
     }
-
-    .links {
-    display: flex;
-    justify-content: space-between;
-    }
-
-    .links a {
-    margin-right: 64pt;
-    text-decoration: none;
-    }
-
-    .links a:hover {
-    text-decoration: underline;
-    }
-
-    .Title {
-    display: flex;
-    flex-direction: column;
-    color: #FEDEB8;
-    justify-content: center;
-    margin-left: 25px;
-    font-size: 35pt;
-    font-family: "Oswald", sans-serif;
-      
-    }
-
     .NavBarItems {
-    display: flex;
-    flex-direction: column;
-    font-size: 24px;
-    color: #FEDEB8;
-    margin: 0;
-    justify-content: center;
+        color: #FEDEB8;
+        font-family: "Bebas Neue";
+        font-size: 3em;
+        text-decoration: none;
+        margin: 0px 5px 0px 5px ;
     }
 
     /*** Content ***/
@@ -108,15 +108,15 @@
     }
 
     .details-box h2 {
-    font-size: 2.2vw;
+    font-size: 2.5em;
     font-family: "Bebas Neue" ;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     margin: 0;
     }
 
     .details-box p {
     font-family: arial;
-    font-size: 18px;
+    font-size: 20px;
     margin-top: 15px;
     margin-bottom: 0px;
     }
@@ -140,11 +140,5 @@
     }
 
     /*** Footer ***/
-    .Footer {
-    background-color: #FEDEB8;
-    display: flex;
-    z-index: 1;
-    padding: 6pt;
-    justify-content: left;
-    }
+   
 }
