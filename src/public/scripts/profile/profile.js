@@ -14,6 +14,8 @@ function populateUserInfo() {
                             let userName = userDoc.data().name;
                             let userEmail = userDoc.data().email;
                             let userCity = userDoc.data().city;
+                            let workAddress = userDoc.data().workAddress;
+                            let province = userDoc.data().province;
 
                             //if the data fields are not empty, then write them in to the form.
                             if (userName != null) {
@@ -24,6 +26,12 @@ function populateUserInfo() {
                             }
                             if (userCity != null) {
                                 document.getElementById("cityInput").value = userCity;
+                            }
+                            if (workAddress != null) {
+                                document.getElementById("addressInput").value = workAddress;
+                            }
+                            if (province != null) {
+                                document.getElementById("provinceInput").value = province;
                             }
                         })
                 } else {
@@ -44,14 +52,17 @@ function editUserInfo() {
 
     //a) get user entered values
     userName = document.getElementById("nameInput").value;       //get the value of the field with id="nameInput"
-userSchool = document.getElementById("email").value;     //get the value of the field with id="schoolInput"
+userEmail = document.getElementById("email").value;     //get the value of the field with id="schoolInput"
 userCity = document.getElementById("cityInput").value;       //get the value of the field with id="cityInput"
-
+userWorkAddress = document.getElementById("addressInput").value; 
+userProvince = document.getElementById("userProvince").value;      //get the value of the field with id="workAddress"
     //b) update user"s document in Firestore
     currentUser.update({
         name: userName,
         email: userEmail,
-        city: userCity
+        city: userCity,
+        workAddress : userWorkAddress,
+        province : userProvince,
     })
     .then(() => {
         console.log("Document successfully updated!");
@@ -59,4 +70,3 @@ userCity = document.getElementById("cityInput").value;       //get the value of 
     //c) disable edit 
     document.getElementById("personalInfoFields").disabled = true;
 }
-editUserInfo();
