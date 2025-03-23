@@ -1,62 +1,73 @@
-var currentUser;               //points to the document of the user who is logged in
+var currentUser; //points to the document of the user who is logged in
 
 function populateUserInfo() {
-            firebase.auth().onAuthStateChanged(user => {
-                // Check if user is signed in:
-                if (user) {
+  firebase.auth().onAuthStateChanged(user => {
 
-                    //go to the correct user document by referencing to the user uid
-                    currentUser = db.collection("users").doc(user.uid)
-                    //get the document for current user.
-                    currentUser.get()
-                        .then(userDoc => {
-                            //get the data fields of the user
-                            let userName = userDoc.data().name;
-                            let userEmail = userDoc.data().email;
-                            let userCity = userDoc.data().city;
+    // Check if user is signed in:
+    if (user) {
+      //go to the correct user document by referencing to the user uid
+      currentUser = db.collection("users").doc(user.uid)
+      //get the document for current user.
+      currentUser.get()
+        .then(userDoc => {
+          //get the data fields of the user
+          let userName = userDoc.data().name;
+          let userEmail = userDoc.data().email;
+          let userCity = userDoc.data().city;
+          let workAddress = userDoc.data().workAddress;
+          let province = userDoc.data().province;
 
-                            //if the data fields are not empty, then write them in to the form.
-                            if (userName != null) {
-                                document.getElementById("nameInput").value = userName;
-                            }
-                            if (userEmail != null) {
-                                document.getElementById("email").value = userEmail;
-                            }
-                            if (userCity != null) {
-                                document.getElementById("cityInput").value = userCity;
-                            }
-                        })
-                } else {
-                    // No user is signed in.
-                    console.log ("No user is signed in");
-                }
-            });
-        }
+          //if the data fields are not empty, then write them in to the form.
+          if (userName != null) {
+            document.getElementById("nameInput").value = userName;
+          }
+          if (userEmail != null) {
+            document.getElementById("email").value = userEmail;
+          }
+          if (userCity != null) {
+            document.getElementById("cityInput").value = userCity;
+          }
+          if (workAddress != null) {
+            document.getElementById("addressInput").value = workAddress;
+          }
+          if (province != null) {
+            document.getElementById("provinceInput").value = province;
+          }
+        });
+    } else {
+      // No user is signed in.
+      console.log ("No user is signed in");
+    }
+  });
+}
 
 //call the function to run it 
 populateUserInfo();
 function editUserInfo() {
-    //Enable the form fields
-    document.getElementById("personalInfoFields").disabled = false;
- }
- function saveUserInfo() {
-    //enter code here
-
-    //a) get user entered values
-    userName = document.getElementById("nameInput").value;       //get the value of the field with id="nameInput"
-userSchool = document.getElementById("email").value;     //get the value of the field with id="schoolInput"
-userCity = document.getElementById("cityInput").value;       //get the value of the field with id="cityInput"
-
-    //b) update user"s document in Firestore
-    currentUser.update({
-        name: userName,
-        email: userEmail,
-        city: userCity
-    })
-    .then(() => {
-        console.log("Document successfully updated!");
-    })
-    //c) disable edit 
-    document.getElementById("personalInfoFields").disabled = true;
+  //Enable the form fields
+  document.getElementById("personalInfoFields").disabled = false;
 }
-editUserInfo();
+
+function saveUserInfo() {
+
+  // a) get user entered values
+  userName = document.getElementById("nameInput").value;       //get the value of the field with id="nameInput"
+  userEmail = document.getElementById("email").value;     //get the value of the field with id="schoolInput"
+  userCity = document.getElementById("cityInput").value;       //get the value of the field with id="cityInput"
+  userWorkAddress = document.getElementById("addressInput").value; 
+  userProvince = document.getElementById("userProvince").value;      //get the value of the field with id="workAddress"
+  
+  // b) update user"s document in Firestore
+  currentUser.update({
+    name: userName,
+    email: userEmail,
+    city: userCity,
+    workAddress : userWorkAddress,
+    province : userProvince,
+  })
+  .then(() => {
+    console.log("Document successfully updated!");
+  })
+  //c) disable edit 
+  document.getElementById("personalInfoFields").disabled = true;
+}
