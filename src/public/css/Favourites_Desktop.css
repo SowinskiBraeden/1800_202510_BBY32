@@ -232,6 +232,8 @@
 
     /*** The Close Button ***/
     .close {
+      /* background-color: #800020; */
+      width: 60px;
       color: #aaaaaa;
       float: right;
       font-size: 40px;
