@@ -34,12 +34,6 @@ app.get("/dashboard/favourites", (req, res) => {
   return res.status(status.Ok);
 });
 
-app.get("/dashboard/signup", (req, res) => {
-  res.set('Content-Type', 'text/html');
-  res.sendFile(path.join(__dirname, '/views/profile.html'));
-  return res.status(status.Ok);
-});
-
 app.get("/dashboard/profile", (req, res) => {
   res.set('Content-Type', 'text/html');
   res.sendFile(path.join(__dirname, '/views/profile.html'));

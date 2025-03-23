@@ -41,7 +41,7 @@ function getListings() {
   // append existings filters
   let queryURL = new URL(`${window.location.href.split("/dashboard")[0]}/api/listings`);
 
-  const search    = document.getElementById("Search_input").value;
+  const search    = document.getElementById("search").value;
   const max_price = document.getElementById("price").value;
   const min_bed   = document.getElementById("bedrooms").value;
   const min_bath  = document.getElementById("bathrooms").value;

@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Oswald", sans-serif;
+  overflow-x: hidden;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+      'header header'
+      'main main'
+      'footer footer';
+  grid-template-columns: 1fr 3fr;
+  padding: 0pt;
+  margin: 0pt;
+  width: 100%;
+  height: 100%;
+}
+
+/*** NavBar ***/
+.header-container {
+  grid-area: header;
+  background-color: #bbb;
+  height: 64pt;
+  border-radius: 0pt;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 0pt;
+  width: 100vw;
+}
+
+.header-container a {
+  margin-left: 32pt;
+}
+
+/*** Content ***/
+.container {
+  grid-area: main;
+}
+
+#profContent > img {
+  top: 10%;
+  width: 25%;
+  height: 25%;
+  left: 37%;
+  right: 33%;
+  border-radius: 50%;
+  position: fixed;
+}
+
+#name-goes-here{
+  position: fixed;
+  left:49%;
+  top: 43%;
+  transform: translate(-50%, -50%);
+  font-size: 24pt;
+  color: black;
+}
+
+#address-goes-here{
+  position: fixed;
+  left:49%;
+  top: 63%;
+  transform: translate(-50%, -50%);
+  font-size: 24pt;
+  color: black;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0%;
+}
