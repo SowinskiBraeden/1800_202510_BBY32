@@ -1,25 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Hoser Housing</title>
-    <meta name="comp1800 template" content="My 1800 App">
+    <title>Hoser Housing</title>    
+    <meta name="description" content="Hoser Housing">
     <link rel="icon" type="image/x-icon" href="/static/icons/Comp1800_favicon.svg">
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!------------------------------------------>
-    <!--          Bootstrap Library           -->
-    <!------------------------------------------>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
 
-    <!-------------------------------------------------------->
-    <!--                 Firebase 8 Library                 -->
-    <!-------------------------------------------------------->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
@@ -32,107 +26,90 @@
     <link rel="stylesheet" href="/static/css/footer.css">
   </head>
 
-  <body id="Page">
-    <div class="cover">
-      <!-- Header -->
-      <div class="header">
-        <img src="/static/images/Comp1800_logo.png" class="Logo">
-
-        <div class="logout_box">
-          <button class="logout">
-            <a onclick="logout()" href="/login">Logout</a>
-          </button>
-        </div>
-      </div>
-      <!-- NavBar -->
-      <nav class="NavBar">
-        <a href="/dashboard">
-          <img src="/static/icons/icons(beige)/house-solid(beige).svg">
-        </a>
-        <a href="/dashboard/favourites">
-          <img src="/static/icons/icons(beige)/heart(beige).svg">
-        </a>
-        <a href="/dashboard/profile">
-          <img src="/static/icons/icons(beige)/profile(beige).svg">
-        </a>
-      </nav>
-  </div>
+  <body>
+    <!-- Navbar -->
+    <div class="grid-container">
+      <header class="header-container">
+        <a class="back-btn" href="/dashboard">Back</a>
+      </header>
       
-    <!-- Content -->
-    <section class="main">
-    
-      <div class="listing-container" id="listings">
+      <!-- Content -->
+      <section class="main">
       
-        <!-- <template id="listing-template"> -->
-          <div class="listing">
-            <div class="listing-content">
-
-              <div class="listing-header">
-                <div class="listing-header-left">
-                  <h2 class="listing-title">Title</h2>
-                  <h2 class="listing-location">Location</h2>
-                </div>
-                <div class="listing-header-right">
-                  <div>
-
+        <div class="listing-container" id="listings">
+        
+          <!-- <template id="listing-template"> -->
+            <div class="listing">
+              <div class="listing-content">
+                <div class="listing-header">
+                  <div class="listing-header-left">
+                    <h2 class="listing-title">Title</h2>
+                    <h2 class="listing-location">Location</h2>
+                  </div>
+                  <div class="listing-header-right">
                     <div>
-                      <a id="favourited" title="favourite" href="#">
-                        <img src="/static/icons/heart.svg" id="heart">
-                      </a>
+                      <div>
+                        <a title="favourite" href="#">
+                          <img src="/static/icons/heart.svg">
+                        </a>
+                      </div>
                     </div>
-
+                  </div>
+                </div>
+                <div class="listing-image">
+                  <div class="listing-image-left">
+                    <img class="listing-preview" src="https://dummyimage.com/600x450/919191/ededed&text=No+images+found" alt=""/>
+                  </div>
+                  <div class="map">
+                    <iframe
+                      class="map-embed"
+                      width="374" 
+                      height="440" 
+                      frameborder="0" 
+                      scrolling="no" 
+                      marginheight="0" 
+                      marginwidth="0" 
+                      id="gmap_canvas" 
+                      src="https://maps.google.com/maps?hl=en&amp;q=%20Burnaby&amp;output=embed">>
+                    </iframe>
+                  </div>
+                </div>
+                <div class="listing-details">
+                  <div class="listing-details-left">
+                    <p class="listing-description">big description of house yes</p>
+                  </div>
+                  <div class="listing-details-right">
+                    <h3 class="listing-data">$dollars - feet</h3>
+                    <h3 class="listing-data-1"></h3>
                   </div>
                 </div>
               </div>
-
-              <div class="listing-image">
-                <div class="listing-image-left">
-                  <img class="listing-preview" src="https://dummyimage.com/600x450/919191/ededed&text=No+images+found" alt=""/>
-                </div>
-                <div class="map">
-                  <iframe
-                    class="map-embed"
-                    width="374" 
-                    height="440" 
-                    frameborder="0" 
-                    scrolling="no" 
-                    marginheight="0" 
-                    marginwidth="0" 
-                    id="gmap_canvas" 
-                    src="https://maps.google.com/maps?hl=en&amp;q=%20Burnaby&amp;output=embed">>
-                  </iframe>
-                </div>
-              </div>
-
-              <div class="listing-details">
-                <div class="listing-details-left">
-                  <p class="listing-description">big description of house yes</p>
-                </div>
-                <div class="listing-details-right">
-                  <h3 class="listing-data">$dollars - feet</h3>
-                  <h3 class="listing-data-1"></h3>
-                </div>
-              </div>
             </div>
-          </div>
-        <!-- </template> -->
+          <!-- </template> -->
 
-      </div>
+        </div>
 
-    </section>
+      </section>
       
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-links">
-        
-      </div>
-    </footer>
- 
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-links">
+          <a href="/dashboard">
+            <img src="/static/icons/house-solid.svg">
+          </a>
+          <a href="/dashboard/favourites">
+            <img src="/static/icons/heart.svg">
+          </a>
+          <a href="/dashboard/profile">
+            <img src="/static/icons/profile.svg">
+          </a>
+        </div>
+      </footer>
+    </div>
 
     <!-- Scripts -->
     <script src="/static/scripts/auth/firebase_config.js"></script>
     <script src="/static/scripts/auth/forwardAuth.js"></script>
     <script src="/static/scripts/api/loadListing.js"></script>
-    <script src="/static/scripts/favourites/favourites.js"></script>
   </body>
 </html>
