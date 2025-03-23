@@ -40,12 +40,6 @@ app.get("/dashboard/profile", (req, res) => {
   return res.status(status.Ok);
 });
 
-app.get("/dashboard/favourites", (req, res) => {
-  res.set('Content-Type', 'text/html');
-  res.sendFile(path.join(__dirname, '/views/favourites.html'));
-  return res.status(status.Ok);
-});
-
 app.get("/dashboard/listing/:area/:category/:seo/:id/:lat/:lon", (req, res) => {
   res.set('Content-Type', 'text/html');
   res.sendFile(path.join(__dirname, '/views/listing.html'));

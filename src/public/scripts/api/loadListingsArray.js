@@ -1,5 +1,4 @@
 function getListings() {
-
   // Close filters modal if open
   let modal = document.getElementById("myModal");
   modal.style.display = "none";
@@ -12,7 +11,7 @@ function getListings() {
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function() {
 
-    const listings = JSON.parse(this.response).data;
+    let listings = JSON.parse(this.response).data;
 
     let cardTemplate = document.getElementById("listing-template");
 
@@ -42,7 +41,7 @@ function getListings() {
   // append existings filters
   let queryURL = new URL(`${window.location.href.split("/dashboard")[0]}/api/listings`);
 
-  const search    = document.getElementById("search").value;
+  const search    = document.getElementById("Search_input").value;
   const max_price = document.getElementById("price").value;
   const min_bed   = document.getElementById("bedrooms").value;
   const min_bath  = document.getElementById("bathrooms").value;

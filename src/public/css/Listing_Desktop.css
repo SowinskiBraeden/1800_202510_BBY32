@@ -11,12 +11,11 @@
     /* overflow-x: hidden; */
   }
 
-  body {
+  #Page {
+    background-color: #800020;
     width: 100vw;
     height: 100vh;
-  }
-
-  #Page {
+    overflow-x: hidden;
     grid-template-columns: 100%;
     grid-template-rows: 10% 90%;
   }
@@ -38,45 +37,7 @@
   .logo {
     max-width: 100%;
   }
-
-  .search_bar_box {
-    /* background-color: #E64B0A; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 460px;
-  }
-
-  .search_bar {
-    /* background-color: #E64B0A; */
-    display: flex;
-    flex-direction: row;
-    height: 50px;
-  }
-
-  .search {
-    /* background-color: #E64B0A; */
-    display: flex;
-    flex-direction: row;
-    
-  }
-
-  #Search_input {
-    background-color: white;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-    border: 0px;
-    padding: 0px 10px 0px 0px;
-    text-align: right;
-    width: 300px;
-  }
-
-  .search button {
-    background-color: gainsboro;
-    border: 0px;
-    padding: 0px 10px 0px 10px;
-  }
-
+  
   #Filter {
     background-color: #FEDEB8;
     display: flex;
@@ -112,10 +73,8 @@
     background-color: white;
     height: 50px;
     padding: 0px 30px 0px 30px;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
+    margin-right: 20px;
+    border-radius: 30px;
     border: 0px;
   }
 
@@ -127,83 +86,47 @@
   /*** NavBar ***/
   .NavBar {
     position: absolute;
-    top: 5%;
+    top: 0%;
     left: 5%;
-    background-color: #D20001;
+    background-color: transparent;
+    height: 100%;
   }
   .NavBar img {
-    max-height: 100%;
-    scale: 90%;
-    margin: 0px 2px 0px 2px ;
+    height: 100%;
+    scale: 100%;
+    margin: 0% 2% 0% 2% ;
+    padding: 5% 0% 5% 0%;
   }
   .NavBar a {
     text-decoration: none;
-  }
-
-  /*** Content ***/
-  .main {
-    grid-area: main;
-    padding: 24pt;
-  }
-
-  .listing-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-  }
-
-  .listing {
-    min-height: 175pt;
-    width: 100%;
-    background-color: #c4c4c4;
-    border-radius: 6pt;
-    margin-bottom: 16pt;
-  }
-
-  .listing-content {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .listing-title {
-    overflow: hidden;
-  }
-
-  .listing-image img {
-    margin: 12pt;
-    height: 151pt;
-    width: 125pt;
-    object-fit: cover;
-  }
-
-  .listing-details {
-    margin: 12pt;
   }
 
     /*** Content ***/
     .main {
       width: 100vw;
       height: 100%;
-      padding: 4%;
+      padding: 0% 4% 0% 2.5%;
     }
 
     .listing-title, .listing-location {
       overflow: hidden;
+      font-family: "Bebas Neue";
     }
 
     .listing-container {
-      margin-top: 60pt;
       display: flex;
       flex-direction: column;
-      justify-content: space-evenly;
+      justify-content: center;
     }
 
     .listing {
       width: 100%;
       height: 75%;
-      background-color: #cecece;
-      border-radius: 6pt;
-      padding: 28pt;
+      background-color: #FEDEB8;
+      border-radius: 15px;
+      padding: 30pt;
+      margin-top: 40px;
+      margin-bottom: 40px;
     }
 
     .listing-content {
@@ -240,6 +163,7 @@
       height: 440px;
       display: flex;
       justify-content: center;  
+      border-radius: 30px;
     }
 
     .listing-image img {
@@ -263,6 +187,10 @@
     .map {
       margin: 12pt;
       margin-top: 0pt;
+    }
+
+    .map iframe {
+      border-radius: 20px;
     }
 
     /*** Footer ***/

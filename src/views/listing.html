@@ -3,6 +3,7 @@
   <head>
     <title>Hoser Housing</title>
     <meta name="comp1800 template" content="My 1800 App">
+    <link rel="icon" type="image/x-icon" href="/static/icons/Comp1800_favicon.svg">
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,18 +38,6 @@
       <div class="header">
         <img src="/static/images/Comp1800_logo.png" class="Logo">
 
-        <div class="search_bar_box">
-          <div class="search_bar">
-            <div class="search">
-              <input id="Search_input" placeholder="Search housing" value="">
-              <button onclick="getListings()">Search</button>
-            </div>
-            <button id="Filter">
-              <p>Filters</p>
-              <img src="/static/icons/filter.svg">
-            </button>
-          </div>
-        </div>
         <div class="logout_box">
           <button class="logout">
             <a onclick="logout()" href="/login">Logout</a>
@@ -58,13 +47,13 @@
       <!-- NavBar -->
       <nav class="NavBar">
         <a href="/dashboard">
-          <img src="/static/icons/house.svg">
+          <img src="/static/icons/icons(beige)/house-solid(beige).svg">
         </a>
         <a href="/dashboard/favourites">
-          <img src="/static/icons/heart.svg">
+          <img src="/static/icons/icons(beige)/heart(beige).svg">
         </a>
         <a href="/dashboard/profile">
-          <img src="/static/icons/profile-solid.svg">
+          <img src="/static/icons/icons(beige)/profile(beige).svg">
         </a>
       </nav>
   </div>
@@ -77,6 +66,7 @@
         <!-- <template id="listing-template"> -->
           <div class="listing">
             <div class="listing-content">
+
               <div class="listing-header">
                 <div class="listing-header-left">
                   <h2 class="listing-title">Title</h2>
@@ -84,14 +74,17 @@
                 </div>
                 <div class="listing-header-right">
                   <div>
+
                     <div>
-                      <a title="favourite" href="#">
-                        <img src="/static/icons/heart.svg">
+                      <a id="favourited" title="favourite" href="#">
+                        <img src="/static/icons/heart.svg" id="heart">
                       </a>
                     </div>
+
                   </div>
                 </div>
               </div>
+
               <div class="listing-image">
                 <div class="listing-image-left">
                   <img class="listing-preview" src="https://dummyimage.com/600x450/919191/ededed&text=No+images+found" alt=""/>
@@ -110,6 +103,7 @@
                   </iframe>
                 </div>
               </div>
+
               <div class="listing-details">
                 <div class="listing-details-left">
                   <p class="listing-description">big description of house yes</p>
@@ -139,5 +133,6 @@
     <script src="/static/scripts/auth/firebase_config.js"></script>
     <script src="/static/scripts/auth/forwardAuth.js"></script>
     <script src="/static/scripts/api/loadListing.js"></script>
+    <script src="/static/scripts/favourites/favourites.js"></script>
   </body>
 </html>

@@ -12,6 +12,7 @@
     }
     
     #Page {
+        background-color: #800020;
         grid-template-columns: 100%;
         grid-template-rows: 10% 90%;
         }
@@ -45,10 +46,7 @@
       background-color: white;
       height: 50px;
       padding: 0px 30px 0px 30px;
-      border-top-left-radius: 30px;
-      border-bottom-left-radius: 30px;
-      border-top-right-radius: 30px;
-      border-bottom-right-radius: 30px;
+      border-radius: 30px;
       border: 0px;
     }
 
@@ -59,15 +57,17 @@
 
     /*** NavBar ***/
     .NavBar {
-      background-color: #D20001;  
       position: absolute;
-      top: 5%;
+      top: 0%;
       left: 5%;
+      background-color: transparent;
+      height: 100%;
     }
     .NavBar img {
-      max-height: 100%;
-      scale: 90%;
-      margin: 0px 2px 0px 2px ;
+      height: 100%;
+      scale: 100%;
+      margin: 0% 2% 0% 2% ;
+      padding: 5% 0% 5% 0%;
     }
     .NavBar a {
       text-decoration: none;
@@ -100,6 +100,13 @@
     transform: translate(-50%, -50%);
     font-size: 24pt;
     color: black;
+    }
+
+    .container h1{
+      color: #FEDEB8;
+    }
+    .container label{
+      color: #FEDEB8;
     }
 }
 
