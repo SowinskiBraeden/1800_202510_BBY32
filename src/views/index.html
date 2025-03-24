@@ -28,57 +28,28 @@
     <!-- CSS -->
     <link rel="stylesheet" href="/static/css/style.css">
   </head>
+  <body>
+    <div class="background"></div>
 
-  <body id="Page">
-    <div class="cover">
-      <!-- Header -->
-      <div class="header">
-        <img src="/static/images/Comp1800_logo(no text).png" class="Logo">
-        <div class="titlebox">
-          <h1 style="overflow-y:hidden;" class="Title">Hoser Housing</h1>
-        </div>
-      </div>
-      <!-- NavBar -->
-      <nav class="NavBar">
-        <div class="NavBarItemsBox">
-          <a href="/" class="NavBarItems">
-            HOME
+    <header class="simple-nav">
+      <nav class="nav-content">
+        <div class="logo-simple">
+          <a href="/">
+            <img src="/static/icons/Comp1800_favicon.svg" alt="favicon"/>
           </a>
         </div>
-        <div class="NavBarItemsBox">
-          <a href="#" class="NavBarItems">
-            ABOUT
-          </a>
+        <div class="links">
+          <a href="/login">Login</a>
         </div>
       </nav>
+    </header>
+
+    <div class="hero">
+      <h1>Hoser Housing</h1>
+      <p>Assisting Canadians to find affordable, well place homes within their growing community.</p>
+      <!-- <div class="get-started"> -->
+        <a class="join-btn" href="/login">Get Searching</a>
+      <!-- </div> -->
     </div>
-
-    <!-- Content -->
-    <div class="main">
-      <div class="image-box">
-
-        <div class="image-wrap">
-          <img src="/static/images/Background_2.jpg" alt="background" width="1560px" height="700px">
-        </div>
-
-        <div class="main-content">
-          <div class="details-box">
-            <h2>Canadian"s Housing Locator</h2>
-            <p>Hoser Housing is the solution to find you the best housing based on your needs such as transit, ideal locations, etc.</p>
-            <a class="join-btn" style="text-decoration: none;color:#FEDEB8;" href="/login">Get Searching!</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-	  <!-- Footer -->
-		<footer class="footer">
-      <div class="footer-links">
-        
-      </div>
-    </footer>
-
-    <!-- Scripts -->
-	</body>
+  </body>
 </html>

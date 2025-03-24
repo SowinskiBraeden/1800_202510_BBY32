@@ -2,12 +2,10 @@
 <html lang="en">
   <head>
     <title>Hoser Housing</title>
-    <meta name="comp1800 template" content="My 1800 App">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="/static/icons/Comp1800_favicon.svg">
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!------------------------------------------>
     <!--          Bootstrap Library           -->
     <!------------------------------------------>
@@ -26,57 +24,30 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
-
+    
     <!-- CSS -->
     <link rel="stylesheet" href="/static/css/style.css">
   </head>
+  <body>
+    <div class="background"></div>
 
-  <body id="Page">
-    <div class="cover">
-      <!-- Header -->
-      <div class="header">
-        <img src="/static/images/Comp1800_logo(no text).png" class="Logo">
-        <div class="titlebox">
-          <h1 style="overflow-y:hidden;" class="Title">Hoser Housing</h1>
-        </div>
-      </div>
-      <!-- NavBar -->
-      <nav class="NavBar">
-        <div class="NavBarItemsBox">
-          <a href="/" class="NavBarItems">
-            HOME
+    <header class="simple-nav">
+      <nav class="nav-content">
+        <div class="logo-simple">
+          <a href="/">
+            <img src="/static/icons/Comp1800_favicon.svg" alt="favicon"/>
           </a>
         </div>
-        <div class="NavBarItemsBox">
-          <a href="#" class="NavBarItems">
-            ABOUT
-          </a>
+        <div class="links">
+          <a href="/">Home</a>
         </div>
       </nav>
+    </header>
+
+    <div class="login-container">
+      <div id="firebaseui-auth-container"></div>
+      <div id="loader">Loading...</div>
     </div>
-
-    <!-- Content -->
-    <div class='main'>
-      <div class='image-box'>
-
-        <div class='image-wrap'>
-          <img src='/static/images/background.jpg' alt='background'>
-        </div>
-
-        <div class="login-container">
-          <div id="firebaseui-auth-container"></div>
-          <div id="loader">Loading...</div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-links">
-        
-      </div>
-    </footer>
 
     <!-- Scripts -->
     <script src="/static/scripts/auth/firebase_config.js"></script>
