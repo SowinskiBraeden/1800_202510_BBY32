@@ -51,6 +51,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  height: 70vh;
 }
 
 .listing {
@@ -175,4 +176,10 @@ body {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+#message-container {
+  display: none;
+  text-align: center;
+  margin-top: 25%;
 }
