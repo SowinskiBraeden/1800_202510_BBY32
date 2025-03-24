@@ -1,4 +1,4 @@
-let listingData;
+let listing;
 
 function loadListing() {
   const url      = window.location.href;
@@ -13,7 +13,7 @@ function loadListing() {
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function() {
 
-    let listing = JSON.parse(this.response);
+    listing = JSON.parse(this.response);
 
     let data = `${listing.price}`;
     if (listing.sqft != null)
@@ -23,22 +23,12 @@ function loadListing() {
     document.querySelector(".listing-title").innerHTML = listing.title;
     document.querySelector(".listing-location").innerHTML = listing.location;
     document.querySelector(".listing-data").innerHTML = data;
-    document.querySelector(".listing-data-1").innerHTML =  room;
+    document.querySelector(".listing-data-1").innerHTML = room;
     document.querySelector(".listing-description").innerHTML = listing.description;
     if (listing.images.length > 0)
       document.querySelector(".listing-preview").src = listing.images[0];
-    document.querySelector(".map-embed").src = `http://maps.google.com/maps?q=${lat},${lon}&z=15&output=embed`;
 
-    listingData = {
-      title : listing.title,
-      location : listing.location,
-      price : listing.price,
-      sqft: listing.sqft,
-      rooms : room ,
-      description : listing.description,
-      url: url,
-      images : listing.images,
-    }
+    document.querySelector(".map-embed").src = `http://maps.google.com/maps?q=${lat},${lon}&z=15&output=embed`;
   }
 
   xhttp.open("GET", `/api/listing/${area}/${category}/${seo}/${id}`);

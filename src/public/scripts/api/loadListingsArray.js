@@ -25,7 +25,7 @@ function getListings() {
       card.querySelector(".listing-title").innerHTML = listings[i].title;
       card.querySelector(".listing-location").innerHTML = listings[i].location.area;
       card.querySelector(".listing-data").innerHTML = `${listings[i].priceStr} - ${listings[i].sqft}sqft - ${listings[i].bedrooms} room${listings[i].bedrooms > 1 ? "s" : ""}`;
-      card.querySelector(".listing-description").innerHTML = listings[i].description;
+      card.querySelector(".listing-area").innerHTML = listings[i].description;
       card.querySelector(".listing-link").href = redirect;
 
       if (listings[i].images.length > 0) {
