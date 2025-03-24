@@ -2,11 +2,10 @@
 <html lang="en">
   <head>
     <title>Hoser Housing</title>
-    <meta name="comp1800 template" content="My 1800 App">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="/static/icons/Comp1800_favicon.svg">
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!------------------------------------------>
     <!--          Bootstrap Library           -->
     <!------------------------------------------>
@@ -25,47 +24,30 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
-    <!-- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script> -->
-
+    
     <!-- CSS -->
-    <link rel="stylesheet" href="/static/css/BaseStyle_Mobile.css">
-    <link rel="stylesheet" href="/static/css/BaseStyle_Desktop.css">
+    <link rel="stylesheet" href="/static/css/style.css">
   </head>
-
   <body>
-    <!-- Navbar -->
-    <nav class="NavBar">
-      <div>
-        <img src="/static/images/Comp1800_logo(no text).png" class="Logo">
-      </div>
-      <div class="links">
-        <a href="/" class="NavBarItems">
-          HOME
-        </a>
-        <a href="/dashboard" class="NavBarItems">
-          ABOUT
-        </a>
-      </div>
-    </nav>
+    <div class="background"></div>
 
-    <!-- Content -->
-    <div class='main'>
-      <div class='image-box'>
-
-        <div class='image-wrap'>
-          <img src='/static/images/background.jpg' alt='background'>
+    <header class="simple-nav">
+      <nav class="nav-content">
+        <div class="logo-simple">
+          <a href="/">
+            <img src="/static/icons/Comp1800_favicon.svg" alt="favicon"/>
+          </a>
         </div>
-
-        <div class="login-container">
-          <div id="firebaseui-auth-container"></div>
-          <div id="loader">Loading...</div>
+        <div class="links">
+          <a href="/">Home</a>
         </div>
+      </nav>
+    </header>
 
-      </div>
+    <div class="login-container">
+      <div id="firebaseui-auth-container"></div>
+      <div id="loader">Loading...</div>
     </div>
-
-    <!-- Footer -->
-    <nav id="footerPlaceholder"></nav>
 
     <!-- Scripts -->
     <script src="/static/scripts/auth/firebase_config.js"></script>
