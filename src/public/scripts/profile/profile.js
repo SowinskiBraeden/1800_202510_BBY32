@@ -31,7 +31,7 @@ function populateUserInfo() {
             document.getElementById("addressInput").value = workAddress;
           }
           if (province != null) {
-            document.getElementById("provinceInput").value = province;
+            document.getElementById("userProvince").value = province;
           }
         });
     } else {
