@@ -21,6 +21,9 @@
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css' rel='stylesheet' />
+
     <!-- CSS -->
     <link rel="stylesheet" href="/static/css/listing.css">
     <link rel="stylesheet" href="/static/css/footer.css">
@@ -61,7 +64,7 @@
                     <img class="listing-preview" src="https://dummyimage.com/600x450/919191/ededed&text=No+images+found" alt=""/>
                   </div>
                   <div class="map">
-                    <iframe
+                    <!-- <iframe
                       class="map-embed"
                       width="374" 
                       height="440" 
@@ -71,7 +74,8 @@
                       marginwidth="0" 
                       id="gmap_canvas" 
                       src="https://maps.google.com/maps?hl=en&amp;q=%20Burnaby&amp;output=embed">>
-                    </iframe>
+                    </iframe> -->
+                    <div id='map' style='width: 400px; height: 300px;'></div>
                   </div>
                 </div>
                 <div class="listing-details">
@@ -108,9 +112,11 @@
     </div>
 
     <!-- Scripts -->
+    <script src="/static/scripts/api/loadMap.js"></script>
     <script src="/static/scripts/auth/firebase_config.js"></script>
     <script src="/static/scripts/auth/forwardAuth.js"></script>
     <script src="/static/scripts/api/loadListing.js"></script>
     <script src="/static/scripts/favourites/saveFavourite.js"></script>
+
   </body>
 </html>

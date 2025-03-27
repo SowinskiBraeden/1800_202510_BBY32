@@ -5,7 +5,36 @@ const searchPath = "hhh";
 const craigslistAPI = `https://sapi.craigslist.org/web/v8/postings/search?lang=en&area_id=${vancouverAreaID}&searchPath=${searchPath}`
 const craigslistListingPage = `https://vancouver.craigslist.org`;
 
+// Load environment variables from .env file
+require('dotenv').config()
+
+const API_KEY = process.env.API_KEY || "";
+
 module.exports = (app) => { 
+
+  app.get("/api/geocode", async (req, res) => {
+    try {
+      const dest = req.query.address;
+      if (!dest)
+        return res.status(status.InternalServerError).send({ok: false});
+
+      const query = `https://api.mapbox.com/search/geocode/v6/forward?q=${dest}&access_token=${API_KEY}`;
+      const raw = await fetch(query, { method: "GET" }).then(response => response.json());
+      let data = {
+        ok: true,
+        coordinates: raw.features[0].geometry.coordinates,
+      };
+      return res.status(status.Ok).send(data);
+    } catch (error) {
+      console.error(`ERROR: /api/geocode -> ${error}`);
+      return res.status(status.InternalServerError).send({ok: false});
+    }
+  });
+
+  app.get("/api/getmap", async (req, res) => {
+    return res.status(status.Ok).send({key: API_KEY});
+  });
+
   app.get("/api/listings", async (req, res) => {
     try {
       const search    = req.query.query         ? `&query=${req.query.query}`                : "";
@@ -84,15 +113,12 @@ module.exports = (app) => {
                       .substring(7);
 
       let images = [];
-      console.log(raw);
       if (raw.includes("<div id=\"thumbs\">")) {
-        console.log(1);
         images = raw
                   .split("<div id=\"thumbs\">")[1]
                   .split("</div>")[0]
                   .split("href=\"");
       }
-      console.log(images);
       images.shift()
       images = images.map((url) => url.split("\"")[0]);
 
