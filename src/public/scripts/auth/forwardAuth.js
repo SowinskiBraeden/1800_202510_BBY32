@@ -1,3 +1,9 @@
+/**
+ * forwardAuth detects if a user is already
+ * authenticated to bypass login page
+ * or redirect from dashboard to login
+ * if not authenticated.
+ */
 function forwardAuth() {
   let url = window.location.href;
   if (url.includes("login")) {
@@ -19,6 +25,10 @@ function forwardAuth() {
 
 forwardAuth();
 
+/**
+ * logout removes user authenticated and 
+ * redirects to login page.
+ */
 function logout() {
   firebase.auth().signOut().catch((error) => {
       console.error(error);
