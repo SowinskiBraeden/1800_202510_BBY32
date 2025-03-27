@@ -21,10 +21,13 @@ function getListings() {
       
       let card = cardTemplate.content.cloneNode(true);
 
+      if (!listings[i].sqft) listings[i].sqft = 0;
+      if (!listings[i].bedrooms) listings[i].bedrooms = 0;
+
       let redirect = `/dashboard/listing/${listings[i].area}/${listings[i].category}/${listings[i].seo}/${listings[i].id}/${listings[i].location.lat}/${listings[i].location.lon}`;
       card.querySelector(".listing-title").innerHTML = listings[i].title;
       card.querySelector(".listing-location").innerHTML = listings[i].location.area;
-      card.querySelector(".listing-data").innerHTML = `${listings[i].priceStr} - ${listings[i].sqft}sqft - ${listings[i].bedrooms} room${listings[i].bedrooms > 1 ? "s" : ""}`;
+      card.querySelector(".listing-data").innerHTML = `${listings[i].priceStr} - ${listings[i].sqft}sqft - ${listings[i].bedrooms} room${listings[i].bedrooms == 1  ? "" : "s"}`;
       card.querySelector(".listing-area").innerHTML = listings[i].description;
       card.querySelector(".listing-link").href = redirect;
 

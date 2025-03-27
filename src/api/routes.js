@@ -5,7 +5,36 @@ const searchPath = "hhh";
 const craigslistAPI = `https://sapi.craigslist.org/web/v8/postings/search?lang=en&area_id=${vancouverAreaID}&searchPath=${searchPath}`
 const craigslistListingPage = `https://vancouver.craigslist.org`;
 
+// Load environment variables from .env file
+require('dotenv').config()
+
+const API_KEY = process.env.API_KEY || "";
+
 module.exports = (app) => { 
+
+  app.get("/api/geocode", async (req, res) => {
+    try {
+      const dest = req.query.address;
+      if (!dest)
+        return res.status(status.InternalServerError).send({ok: false});
+
+      const query = `https://api.mapbox.com/search/geocode/v6/forward?q=${dest}&access_token=${API_KEY}`;
+      const raw = await fetch(query, { method: "GET" }).then(response => response.json());
+      let data = {
+        ok: true,
+        coordinates: raw.features[0].geometry.coordinates,
+      };
+      return res.status(status.Ok).send(data);
+    } catch (error) {
+      console.error(`ERROR: /api/geocode -> ${error}`);
+      return res.status(status.InternalServerError).send({ok: false});
+    }
+  });
+
+  app.get("/api/getmap", async (req, res) => {
+    return res.status(status.Ok).send({key: API_KEY});
+  });
+
   app.get("/api/listings", async (req, res) => {
     try {
       const search    = req.query.query         ? `&query=${req.query.query}`                : "";
@@ -51,7 +80,6 @@ module.exports = (app) => {
           category:    item.categoryAbbr,
           area:        item.location.subareaAbbr,
         };
-        
         listings.data.push(listing);
       }
       
@@ -72,34 +100,99 @@ module.exports = (app) => {
 
     try {
       const listingURL = `${craigslistListingPage}/${area}/${category}/d/${seo}/${id}.html`;
-      // console.log(listingURL);
       const raw = await fetch(listingURL, { method: "GET" }).then(response => response.text());
       const stupidPadding = 17;
 
-      let title = raw.split("id=\"titletextonly\">")[1].split("</span>")[0];
-      let location = raw.split("id=\"titletextonly\">")[1].split("</span>")[1].substring(7);
+      let title = raw
+                    .split("id=\"titletextonly\">")[1]
+                    .split("</span>")[0];
+
+      let location = raw
+                      .split("id=\"titletextonly\">")[1]
+                      .split("</span>")[1]
+                      .substring(7);
+
       let images = [];
-      if (raw.includes("<div id=\"thumbs\">"))
-        images = raw.split("<div id=\"thumbs\">")[1].split("</div>")[0].split("href=\"");
+      if (raw.includes("<div id=\"thumbs\">")) {
+        images = raw
+                  .split("<div id=\"thumbs\">")[1]
+                  .split("</div>")[0]
+                  .split("href=\"");
+      }
       images.shift()
       images = images.map((url) => url.split("\"")[0]);
-      let price = raw.split("class=\"price\">")[1].split("</span>")[0];
-      let available = raw.split("class=\"attrgroup\">")[1].includes("available") ? raw.split("class=\"attrgroup\">")[1].split("available ")[1].split("\n")[0] : null;
-      let sqft = raw.includes("ft<sup>2</sup>") ? parseInt(raw.split("class=\"attrgroup\">")[1].split("<span class=\"attr important\">")[2].substring(stupidPadding).split("ft")[0]) : null;
-      let bedrooms = "N/A";
-      if (raw.split("class=\"attrgroup\">")[1].includes("BR"))
-        bedrooms = parseInt(raw.split("class=\"attrgroup\">")[1].split("<span class=\"attr important\">")[1].substring(stupidPadding).split("BR")[0]);
-      let bathrooms = "N/A";
-      if (raw.split("class=\"attrgroup\">")[1].includes("Ba"))
-        bathrooms = raw.split("class=\"attrgroup\">")[1].split("<span class=\"attr important\">")[1].split("/ ")[1].split("Ba")[0];
-      if (bathrooms != "shared" && bathrooms != "N/A") bathrooms = parseInt(bathrooms);
-      let description = raw.split("id=\"postingbody\"")[1].split("</div>")[2].split("</section>")[0].replaceAll("<br>", "").substring(1);
-      let splitIdx = (bedrooms != "N/A" && bathrooms != "N/A") ? 3 : 2;
-      let attributes = raw.split("class=\"attrgroup\">")[splitIdx].split("<section id=\"postingbody\">")[0].split("<a href=\"");
+
+      let price = raw
+                  .split("class=\"price\">")[1]
+                  .split("</span>")[0];
+
+      let available = raw.split("class=\"attrgroup\">")[1].includes("available") ? 
+                      raw.split("class=\"attrgroup\">")[1].split("available ")[1].split("\n")[0] : null;
+
+      let sqft = 0;
+      if (raw.split("<div class=\"mapAndAttrs\">")[1].split("<section id=\"postingbody\">")[0].includes("ft<sup>2</sup>")) {
+        let last = raw
+                    .split("class=\"attrgroup\">")[1]
+                    .split("ft<sup>2</sup>")[0]
+                    .split(" ")
+                    .length - 1;
+
+        sqft =  parseInt(raw
+          .split("class=\"attrgroup\">")[1]
+          .split("ft<sup>2</sup>")[0]
+          .split(" ")[last]
+        );   
+      }
+
+      let bedrooms = "No";
+      if (raw.split("class=\"attrgroup\">")[1].includes("BR")) {
+        bedrooms = parseInt(raw
+          .split("class=\"attrgroup\">")[1]
+          .split("<span class=\"attr important\">")[1]
+          .substring(stupidPadding)
+          .split("BR")[0]
+        );
+      }
+
+      let bathrooms = "No";
+      if (raw.split("class=\"attrgroup\">")[1].includes("Ba")) {
+        bathrooms = raw
+          .split("class=\"attrgroup\">")[1]
+          .split("<span class=\"attr important\">")[1]
+          .split("/ ")[1]
+          .split("Ba")[0];
+      }
+      if (bathrooms != "shared" && bathrooms != "No") bathrooms = parseInt(bathrooms);
+
+      let description = raw
+                          .split("id=\"postingbody\"")[1]
+                          .split("</div>")[2]
+                          .split("</section>")[0]
+                          .replaceAll("<br>", "")
+                          .substring(1);
+
+
+      let attributes = raw
+        .split("class=\"attrgroup\">")[1]
+        .split("<section id=\"postingbody\">")[0]
+        .split("<a href=\"");
+
       attributes.shift();
       attributes = attributes.map((attr) => attr.split(">")[1].split("</a")[0]);
-      let address = raw.split("<div class=\"mapbox\">")[1].includes("<div class=\"mapaddress\">") ? raw.split("<div class=\"mapbox\">")[1].split("<div class=\"mapaddress\">")[1].split("</div>")[0] : null;
-      let period = raw.split("class=\"attrgroup\">")[2].split("<a href=\"")[1].split(">")[1].split("</a")[0];
+      
+      let address = raw.split("<div class=\"mapbox\">")[1].includes("<div class=\"mapaddress\">")
+                  ? raw
+                      .split("<div class=\"mapbox\">")[1]
+                      .split("<div class=\"mapaddress\">")[1]
+                      .split("</div>")[0] : null;
+
+      let period = raw.includes("<div class=\"attr rent_period\">") 
+                ? raw
+                    .split("<div class=\"attr rent_period\">")[1]
+                    .split("</div>")[0]
+                    .split("</a>")[0]
+                    .split("\">")[3]
+                : null;
 
       let listing = {
         title: title,
@@ -114,6 +207,7 @@ module.exports = (app) => {
         attributes: attributes,
         address: address,
         period: period,
+        original: listingURL,
       };
 
       res.set('Content-Type', 'application/json');
@@ -121,7 +215,7 @@ module.exports = (app) => {
       return res.status(status.Ok);
     } catch (error) {
       console.error(`ERROR: /api/listing/${seo}/${id} -> ${error}`);
-      return res.status(status.InternalServerError).send("Failed to query Craigslist listing.");
+      return res.status(status.InternalServerError).send({"success": false, "message": "Failed to query Craigslist listing."});
     }
   });
 }
