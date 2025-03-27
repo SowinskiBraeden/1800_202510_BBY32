@@ -1,6 +1,6 @@
-async function addRoute(start, end, map) {
+async function addRoute(start, end, map, key) {
   const query = await fetch(
-    `https://api.mapbox.com/directions/v5/mapbox/driving/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=pk.eyJ1Ijoic293aW5za2licmFlZGVuIiwiYSI6ImNtOHFrYTd0ZDBtYmoyanB6MGFwc2dzOG8ifQ.927xT62eMk8KKO0nxvpLNA`,
+    `https://api.mapbox.com/directions/v5/mapbox/driving/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${key}`,
     { method: 'GET' }
   );
   const json = await query.json();
@@ -42,7 +42,8 @@ async function addRoute(start, end, map) {
 function loadMap(start, end=null) {
   const getMap = new XMLHttpRequest();
   getMap.onload = function() {
-    mapboxgl.accessToken = JSON.parse(this.response).key;
+    let key = JSON.parse(this.response).key;
+    mapboxgl.accessToken = key;
     const map = new mapboxgl.Map({
       container: 'map', // container ID
       style: 'mapbox://styles/mapbox/streets-v12', // style URL
@@ -55,7 +56,7 @@ function loadMap(start, end=null) {
       draggable: false,
     }).setLngLat(start).addTo(map);
     
-    if (end) addRoute(start, end, map);
+    if (end) addRoute(start, end, map, key);
   }
   getMap.open("GET", `/api/getmap`);
   getMap.send();

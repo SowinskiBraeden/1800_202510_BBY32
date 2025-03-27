@@ -54,6 +54,7 @@ function loadListing() {
     document.querySelector(".listing-data").innerHTML = data;
     document.querySelector(".listing-data-1").innerHTML = room;
     document.querySelector(".listing-description").innerHTML = listing.description;
+    document.querySelector(".original-listing").href = listing.original;
     if (listing.images.length > 0)
       document.querySelector(".listing-preview").src = listing.images[0];
 

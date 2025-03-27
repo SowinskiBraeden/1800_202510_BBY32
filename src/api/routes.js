@@ -207,6 +207,7 @@ module.exports = (app) => {
         attributes: attributes,
         address: address,
         period: period,
+        original: listingURL,
       };
 
       res.set('Content-Type', 'application/json');
