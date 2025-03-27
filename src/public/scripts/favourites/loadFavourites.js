@@ -61,10 +61,10 @@ function quickRemoveFavourite(index) {
     redirect: `/dashboard${listing.childNodes[1].href.split("/dashboard")[1]}`,
     preview:  content.childNodes[1].childNodes[1].src,
   };
-  
+
   document.getElementById("listings").removeChild(listing);
 
   userDoc.update({
     saved: firebase.firestore.FieldValue.arrayRemove(JSON.stringify(data))
   }); 
-}
+} 

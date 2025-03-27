@@ -4,20 +4,20 @@ function forwardAuth() {
     firebase.auth().onAuthStateChanged(user => {
       // redirect to dashboard if user is already authenticated
       if (user) {
-        // window.location.assign("dashboard")
+        window.location.assign("dashboard")
       }
     });
   } else if (url.includes("dashboard")) {
     firebase.auth().onAuthStateChanged(user => {
       // redirect to dashboard if user is already authenticated
       if (!user) {
-        // window.location.assign("login");
+        window.location.assign("login");
       }
     });
   }
 }
 
-// forwardAuth();
+forwardAuth();
 
 function logout() {
   firebase.auth().signOut().catch((error) => {

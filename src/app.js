@@ -46,6 +46,10 @@ app.get("/dashboard/listing/:area/:category/:seo/:id/:lat/:lon", (req, res) => {
   return res.status(status.Ok);
 });
 
+app.get("/dashboard/login", (req, res) => {
+  return res.status(status.Ok).redirect("/login");
+});
+
 /*** DEFAULT ***/
 
 app.get("*", (req, res) => {
