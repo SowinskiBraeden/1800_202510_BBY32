@@ -1,3 +1,12 @@
+/**
+ * addRoute plots a second point on a map,
+ * and draws a drivable route on the map between
+ * the starting marker and the ending marker.
+ * @param start number array with lat and lon of listing location
+ * @param end number array with lat and lon of saved user address
+ * @param map object to plot data on
+ * @param key string to access mapbox api
+ */
 async function addRoute(start, end, map, key) {
   const query = await fetch(
     `https://api.mapbox.com/directions/v5/mapbox/driving/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${key}`,
@@ -39,6 +48,13 @@ async function addRoute(start, end, map, key) {
   });
 }
 
+/**
+ * loadMap creates map object in html page
+ * and plots a marker at the location of the
+ * listing.
+ * @param start number array with lat and lon of listing
+ * @param end number array or null if no saved user address
+ */
 function loadMap(start, end=null) {
   const getMap = new XMLHttpRequest();
   getMap.onload = function() {

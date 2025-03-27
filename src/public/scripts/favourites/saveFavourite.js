@@ -3,6 +3,12 @@ const heartIcon = document.getElementById('heart');
 let userDoc;
 let listingData;
 
+/**
+ * loaded upon page load in listing.html
+ * and checks for save changes on the save button.
+ * Updates user saved array accordingly and update
+ * button display to show saved or not.
+ */
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     userDoc = db.collection("users").doc(user.uid);
