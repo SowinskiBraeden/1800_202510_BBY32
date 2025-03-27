@@ -70,4 +70,3 @@ function loadListing() {
 }
 
 loadListing()
-
