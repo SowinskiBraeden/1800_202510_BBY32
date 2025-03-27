@@ -82,13 +82,17 @@ module.exports = (app) => {
                       .split("id=\"titletextonly\">")[1]
                       .split("</span>")[1]
                       .substring(7);
+
       let images = [];
+      console.log(raw);
       if (raw.includes("<div id=\"thumbs\">")) {
+        console.log(1);
         images = raw
                   .split("<div id=\"thumbs\">")[1]
                   .split("</div>")[0]
                   .split("href=\"");
       }
+      console.log(images);
       images.shift()
       images = images.map((url) => url.split("\"")[0]);
 
@@ -141,24 +145,28 @@ module.exports = (app) => {
                           .replaceAll("<br>", "")
                           .substring(1);
 
-      let splitIdx = (bedrooms != "No" && bathrooms != "No") ? 3 : 2;
+
       let attributes = raw
-        .split("class=\"attrgroup\">")[splitIdx]
+        .split("class=\"attrgroup\">")[1]
         .split("<section id=\"postingbody\">")[0]
         .split("<a href=\"");
-      
+
       attributes.shift();
       attributes = attributes.map((attr) => attr.split(">")[1].split("</a")[0]);
+      
       let address = raw.split("<div class=\"mapbox\">")[1].includes("<div class=\"mapaddress\">")
                   ? raw
                       .split("<div class=\"mapbox\">")[1]
                       .split("<div class=\"mapaddress\">")[1]
                       .split("</div>")[0] : null;
-      let period = raw
+
+      let period = raw.includes("<div class=\"attr rent_period\">") 
+                ? raw
                     .split("<div class=\"attr rent_period\">")[1]
                     .split("</div>")[0]
                     .split("</a>")[0]
-                    .split("\">")[3];
+                    .split("\">")[3]
+                : null;
 
       let listing = {
         title: title,
