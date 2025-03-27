@@ -1,5 +1,9 @@
 let listing;
 
+/**
+ * loadListing queries internal api to get listing data with
+ * given parameters from page url to populate listing page.
+ */
 function loadListing() {
   const url      = window.location.href;
   const data     = url.split("/");

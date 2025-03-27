@@ -1,3 +1,8 @@
+/**
+ * loaded upon page load to check if user is
+ * authenticated, and if so, finds saved listing
+ * objects and loads into favourite page.
+ */
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     userDoc = db.collection("users").doc(user.uid);
