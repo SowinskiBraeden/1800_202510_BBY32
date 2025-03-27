@@ -24,20 +24,24 @@ Example:
 
 Example:
 - **Frontend**: HTML, CSS, JavaScript
-- **Backend**: TBD
-- **Database**: TBD
-- **API**: TBD
+- **Backend**: Express.js
+- **Database**: Firebase Firestore
+- **API**: Craigslist API, Mapbox API
 
 ---
 
 ## Usage
 
 Please check back later.
-<!-- Example:
-1. Open your browser and visit `http://localhost:3000`.
-2. Enter the name of the city in the search bar and press enter.
-3. View the weather information displayed on the screen. -->
 
+1. Open your browser and visit `http://localhost:8000`.
+2. Login/Signup.
+3. Update work/school location in profile page.
+4. View and search for listings on main dashboard.
+5. View individual listing.
+6. Favourite listing.
+7. View favourites page to see favourited listings.
+8. View original post from listing.
 
 ---
 
@@ -47,13 +51,60 @@ Example:
 ```
 project-name/
 ├── src/
-│   ├── index.html
-│   ├── style.css
-│   ├── app.js
-│   └── components/
+|   ├── app.js
+│   ├── views/
+|   |    ├── dashboard.html
+|   |    ├── favourites.html
+|   |    ├── index.html
+|   |    ├── listing.html
+|   |    ├── login.html
+|   |    ├── not-found.html
+|   |    └── profile.html
+│   ├── public/
+|   |    ├── css/
+|   |    |    ├── dashboard.css
+|   |    |    ├── favourites.css
+|   |    |    ├── footer.css
+|   |    |    ├── listing.css
+|   |    |    ├── profile.css
+|   |    |    ├── style.css
+|   |    ├── icons/
+|   |    |    ├── Comp1800_favicon.svg
+|   |    |    ├── filter.svg
+|   |    |    ├── heart-solid.svg
+|   |    |    ├── house.svg
+|   |    |    ├── house-solid.svg
+|   |    |    ├── profile-solid.svg
+|   |    |    ├── profile.svg
+|   |    ├── images/
+|   |    |    ├── background.jpg
+|   |    |    ├── Comp1800_Logo.png
+|   |    |    ├── Comp1800_Logo(no text).png
+|   |    └── scripts/
+|   |    |    ├── api/
+|   |    |    |    ├── loadListing.js
+|   |    |    |    ├── loadListingsArray.js
+|   |    |    |    ├── loadMap.js
+|   |    |    ├── auth/
+|   |    |    |    ├── authentication.js
+|   |    |    |    ├── firebase_config.js
+|   |    |    |    ├── forwardAuth.js
+|   |    |    |    ├── login.js
+|   |    |    ├── favourites/
+|   |    |    |    ├── loadFavourites.js
+|   |    |    |    ├── saveFavourite.js
+|   |    |    ├── profile/
+|   |    |         ├── profile.js
+│   ├── api/
+|   |    └── routes.js
+│   └── util/
+|        └── status.js
+├── .env.example
+├── .gitignore
+├── LICENSE
+├── package-lock.json
 ├── package.json
-├── README.md
-└── .gitignore
+└── README.md
 ```
 
 ---
@@ -72,23 +123,15 @@ project-name/
 ## Limitations and Future Work
 ### Limitations
 
-<!-- Example:
-- Currently, the app only supports city-based weather searches.
-- Limited to basic weather parameters like temperature, humidity, and conditions.
-- The user interface can be further enhanced for accessibility. -->
-
 - Currently only Metro-Vancouver and nearby cities.
 
 ### Future Work
 
-<!-- Example: 
-- Add support for location-based weather detection using GPS.
-- Implement additional weather parameters like wind speed and UV index.
-- Create a dark mode for better usability in low-light conditions.
-- Integrate user accounts for saving favorite locations.
- -->
-
-- Everything
+- Update UI to modern design
+- Make more mobile friendly
+- Fix 404 not found page
+- Consider travel time from house to work/school
+- Consider distance from house to worl/school
 
 ---
 
