@@ -20,7 +20,7 @@ var uiConfig = {
           window.location.assign("/dashboard/profile");
         }).catch((err) => {
           console.error(`Error creating user: ${err}`);0
-        })
+        });
       } else {
         // authenticated but not new user
         return true;

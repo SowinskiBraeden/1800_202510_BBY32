@@ -2,7 +2,7 @@
  * A reference to the current user's Firestore document.
  * This variable is set once the user is authenticated.
  */
-var currentUser; //points to the document of the user who is logged in
+let currentUser; //points to the document of the user who is logged in
 
 /**
  * Populates the user's profile information in the form fields.
@@ -12,6 +12,7 @@ var currentUser; //points to the document of the user who is logged in
  */
 function populateUserInfo() {
   firebase.auth().onAuthStateChanged(user => {
+
     // Check if user is signed in:
     if (user) {
       // Go to the correct user document by referencing the user UID
@@ -19,6 +20,9 @@ function populateUserInfo() {
       // Get the document for the current user
       currentUser.get()
         .then(userDoc => {
+
+          console.log(userDoc);
+
           // Get the data fields of the user
           let userName = userDoc.data().name;
           let userEmail = userDoc.data().email;
