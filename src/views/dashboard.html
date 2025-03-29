@@ -34,30 +34,30 @@
         <span class="close">&times;</span>
         <div class="filters-wrapper">
           <div class="filters-content">
-            <label>Max Distance (km)</label>
-            <input type="number" placeholder="30km" id="distance" value="">
+            <label>Max Distance</label>
+            <input type="number" class="filter-input" placeholder=" km" id="distance" value="">
   
             <label>Max price</label>
-            <input type="number" placeholder="$" id="price" value="">
+            <input type="number" class="filter-input" placeholder=" $" id="price" value="">
   
             <label>Minimum Bedrooms</label>
-            <input type="number" placeholder="min" id="bedrooms" value="">
+            <input type="number" class="filter-input" placeholder=" min bed" id="bedrooms" value="">
   
             <label>Minimum Bathrooms</label>
-            <input type="number" placeholder="min" id="bathrooms" value="">
+            <input type="number" class="filter-input" placeholder=" min bath" id="bathrooms" value="">
   
             <label>Minimum Square feet</label>
-            <input type="number" placeholder="min" id="sqft" value="">
+            <input type="number" class="filter-input" placeholder=" sqft" id="sqft" value="">
   
-            <button id="apply" onclick="getListings()" type="submit">Apply</button>
+            <button id="apply" class="filter-confirm" onclick="getListings()" type="submit">Apply</button>
           </div>
         </div>
       </div>
 
     </div>
 
-    <!-- NavBar -->
-    <div class="grid-container">
+    <!-- Old NavBar -->
+    <!-- <div class="grid-container">
       <header class="header-container">
         <div class="search">
           <div class="search-bar">
@@ -68,7 +68,20 @@
             <img src="/static/icons/filter.svg">
           </button>
         </div>
-      </header>
+      </header> -->
+
+      <!-- Header -->
+      <div class="header">
+          <div class="search_bar">
+            <div class="Search">
+              <input id="search" class="search-key" placeholder="Search housing" value="" onkeydown="">
+            </div>
+            <button id="filters" class="filters-btn">
+              <p>Filters</p>
+              <img src="/static/icons/filter.svg">
+            </button>
+        </div>
+      </div>
       
       <!-- Content -->
       <section class="main">
@@ -123,15 +136,26 @@
     <script src="/static/scripts/auth/firebase_config.js"></script>
     <script src="/static/scripts/auth/forwardAuth.js"></script>
     <script src="/static/scripts/api/loadListingsArray.js"></script>
+    <script src="/static/scripts/convenience.js"></script>
 
-    <!-- filters modal popul -->
+    <!-- Inline Scripts -->
     <script>
+      let filterinput = document.getElementsByClassName("filter-input");
+      let search = document.getElementById("search");
+
+      search.onkeydown = (event) => {
+          if (event.key == "Enter") {
+              getListings();
+          }
+      }
+
       let modal = document.getElementById("myModal");
-      let btn = document.getElementById("filters");
+      let filter = document.getElementById("filters");
       let span = document.getElementsByClassName("close")[0];
 
-      btn.onclick = function() {
+      filter.onclick = function() {
         modal.style.display = "block";
+        filterinput[0].focus();
       }
 
       span.onclick = function() {

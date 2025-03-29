@@ -1,13 +1,13 @@
 /*** Footer ***/
 .footer {
   grid-area: footer;
-  background-color: #bbb;
+  background-color: gainsboro;
   width: 100%;
-  height: 100pt;
+  height: 10%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
+  z-index: 5;
   position: fixed;
   bottom: 0%;
 }
