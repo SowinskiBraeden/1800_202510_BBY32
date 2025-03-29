@@ -28,7 +28,6 @@ firebase.auth().onAuthStateChanged((user) => {
         
         
         let listing = JSON.parse(saved[i]);
-        console.log(listing);
         
         card.querySelector(".listing").id = `${i}-card`;
         card.querySelector(".listing-title").innerHTML = listing.title;
@@ -42,6 +41,10 @@ firebase.auth().onAuthStateChanged((user) => {
         document.getElementById("listings").appendChild(card);
       }
     });
+  } else {
+    // No user is signed in
+    console.log("No user is signed in");
+    window.location.assign("/login");
   }
 });
 

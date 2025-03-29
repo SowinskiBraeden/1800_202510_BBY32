@@ -21,8 +21,6 @@ function populateUserInfo() {
       currentUser.get()
         .then(userDoc => {
 
-          console.log(userDoc);
-
           // Get the data fields of the user
           let userName = userDoc.data().name;
           let userEmail = userDoc.data().email;
@@ -50,6 +48,7 @@ function populateUserInfo() {
     } else {
       // No user is signed in
       console.log("No user is signed in");
+      window.location.assign("/login");
     }
   });
 }
