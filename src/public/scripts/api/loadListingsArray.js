@@ -1,3 +1,8 @@
+/**
+ * getListings queries internal API
+ * to get array of listing objects to
+ * populate dashboard page.
+ */
 function getListings() {
   // Close filters modal if open
   let modal = document.getElementById("myModal");

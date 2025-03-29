@@ -2,10 +2,11 @@
 <html lang="en">
   <head>
     <title>Hoser Housing</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="/static/icons/Comp1800_favicon.svg">
 
-        <!------------------------------------------>
+    <meta charset="utf-8">
+    <!------------------------------------------>
     <!--          Bootstrap Library           -->
     <!------------------------------------------>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -27,53 +28,28 @@
     <!-- CSS -->
     <link rel="stylesheet" href="/static/css/style.css">
   </head>
+  <body>
+    <div class="background"></div>
 
-  <body id="Page">
-    <div class="cover">
-      <!-- Header -->
-      <div class="header">
-        <img src="/static/images/Comp1800_logo(no text).png" class="Logo">
-        <h1 style="overflow-y:hidden;" class="Title">Hoser Housing</h1>
-      </div>
-      <!-- NavBar -->
-      <nav class="NavBar">
+    <header class="simple-nav">
+      <nav class="nav-content">
+        <div class="logo-simple">
+          <a href="/">
+            <img src="/static/icons/Comp1800_favicon.svg" alt="favicon"/>
+          </a>
+        </div>
         <div class="links">
-          <a href="/" class="NavBarItems">
-            HOME
-          </a>
-          <a href="#" class="NavBarItems">
-            ABOUT
-          </a>
+          <a href="/login">Login</a>
         </div>
       </nav>
+    </header>
+
+    <div class="hero">
+      <h1>404 - Not Found</h1>
+      <p>Unfortunately you wont find any housing on this page you hoser.</p>
+      <!-- <div class="get-started"> -->
+        <a class="join-btn" href="/login">Get Searching</a>
+      <!-- </div> -->
     </div>
-
-    <!-- Content -->
-    <div class="main">
-      <div class="image-box">
-
-        <div class="image-wrap">
-          <img src="/static/images/background.jpg" alt="background">
-        </div>
-
-        <div class="main-content">
-          <div class="details-box">
-            <h1 style="overflow-y:hidden;">404 Not Found</h1>
-            <a class="join-btn" style="text-decoration: none;color:white;" href="/">Go to home</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-	  <!-- Footer -->
-		<footer class="footer">
-      <div class="footer-links">
-        
-      </div>
-    </footer>
-
-    <!-- Scripts -->
-
-	</body>
+  </body>
 </html>

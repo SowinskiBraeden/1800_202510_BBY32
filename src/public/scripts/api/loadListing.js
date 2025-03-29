@@ -1,5 +1,9 @@
 let listing;
 
+/**
+ * loadListing queries internal api to get listing data with
+ * given parameters from page url to populate listing page.
+ */
 function loadListing() {
   const url      = window.location.href;
   const data     = url.split("/");
@@ -54,6 +58,7 @@ function loadListing() {
     document.querySelector(".listing-data").innerHTML = data;
     document.querySelector(".listing-data-1").innerHTML = room;
     document.querySelector(".listing-description").innerHTML = listing.description;
+    document.querySelector(".original-listing").href = listing.original;
     if (listing.images.length > 0)
       document.querySelector(".listing-preview").src = listing.images[0];
 
@@ -65,4 +70,3 @@ function loadListing() {
 }
 
 loadListing()
-

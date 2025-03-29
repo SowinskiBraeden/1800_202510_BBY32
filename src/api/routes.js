@@ -12,6 +12,12 @@ const API_KEY = process.env.API_KEY || "";
 
 module.exports = (app) => { 
 
+  /**
+   * /api/geocode?address=
+   * query mapbox api to convert an address to lat and lon coordinates
+   * @param address to convert
+   * @return object with coordinates
+   */
   app.get("/api/geocode", async (req, res) => {
     try {
       const dest = req.query.address;
@@ -31,10 +37,19 @@ module.exports = (app) => {
     }
   });
 
+  /**
+   * /api/getmap
+   * @return mapbox api key as string within an object
+   */
   app.get("/api/getmap", async (req, res) => {
     return res.status(status.Ok).send({key: API_KEY});
   });
 
+  /**
+   * /api/listings
+   * scrapes listings and gets required data from craigslist api
+   * @return array of listing objects
+   */
   app.get("/api/listings", async (req, res) => {
     try {
       const search    = req.query.query         ? `&query=${req.query.query}`                : "";
@@ -92,6 +107,15 @@ module.exports = (app) => {
     }
   });
 
+  /**
+   * /api/listings/:area/:category/:seo/:id
+   * Scrape web page of individual listing to get listing information.
+   * @param area code of listing
+   * @param category of listing
+   * @param seo string of listing
+   * @param id of listing
+   * @return object of listing data
+   */
   app.get("/api/listing/:area/:category/:seo/:id", async (req, res) => {
     const area = req.params.area;
     const category = req.params.category;
@@ -207,6 +231,7 @@ module.exports = (app) => {
         attributes: attributes,
         address: address,
         period: period,
+        original: listingURL,
       };
 
       res.set('Content-Type', 'application/json');
