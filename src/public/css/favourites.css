@@ -96,6 +96,19 @@ body {
   overflow: hidden;
 }
 
+.remove-box {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.quick-remove {
+  background-color: white;
+  border: 0px;
+  border-radius: 10px;
+  padding: 1% 5% 1% 5%;
+  margin: 0% 5% 0% 5%;
+}
+
 .loader-container {
   width: 100vw;
   height: 80vh;
