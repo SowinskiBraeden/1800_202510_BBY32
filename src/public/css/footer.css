@@ -30,5 +30,5 @@
   left: 50%;
   transform: translate(-50%, -50%);
   overflow-y: hidden;
-  color: black;
+  filter: invert(0.9);
 }

@@ -4,26 +4,29 @@
  * or redirect from dashboard to login
  * if not authenticated.
  */
-function forwardAuth() {
-  let url = window.location.href;
-  if (url.includes("login")) {
-    firebase.auth().onAuthStateChanged(user => {
-      // redirect to dashboard if user is already authenticated
-      if (user) {
-        window.location.assign("dashboard")
-      }
-    });
-  } else if (url.includes("dashboard")) {
-    firebase.auth().onAuthStateChanged(user => {
-      // redirect to dashboard if user is already authenticated
-      if (!user) {
-        window.location.assign("login");
-      }
-    });
-  }
+function forwardAuth() {  
+  firebase.auth().onAuthStateChanged(user => {
+    let url = window.location.href;
+  
+    if (user && url.includes("login")) {
+      window.location.assign("/dashboard");
+    } else if (
+      !user && (
+        url.includes("dashboard") ||
+        url.includes("favourites") ||
+        url.includes("profile")
+      )
+    ) {
+      window.location.assign("/login");
+    }
+  });
 }
 
-forwardAuth();
+// Don't uncomment this.
+// For reasons I am too lazy to investiage. having forward auth prevents the user
+// object from being created in the database, so accessing the profile and the
+// favourites page will not work since there is no user object created.
+// forwardAuth();
 
 /**
  * logout removes user authenticated and 
