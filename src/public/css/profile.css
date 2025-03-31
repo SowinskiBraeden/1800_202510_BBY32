@@ -24,7 +24,7 @@
 /*** NavBar ***/
 .header-container {
   grid-area: header;
-  background-color: gainsboro;
+  background-color: #d20008;
   display: flex;
   flex-direction: column;
   justify-content: center;

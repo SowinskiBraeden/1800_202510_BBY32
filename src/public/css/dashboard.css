@@ -106,7 +106,7 @@ body {
 
 /*** Header ***/
 .header {
-  background-color: gainsboro;
+  background-color: #d20008;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -164,8 +164,8 @@ body {
 
 #filters img {
   background-color: transparent;
-  scale: 40%;
-  margin: 0px;
+  scale: 35%;
+  margin: 0px 0px 0px -15px;
   padding: 0px;
   border: 0px;
 }
@@ -314,8 +314,8 @@ body {
 }
 
 .loader {
-  border: 16px solid #8a8a8a; /* Light grey */
-  border-top: 16px solid #3498db; /* Blue */
+  border: 16px solid gainsboro; /* Light grey */
+  border-top: 16px solid skyblue; /* Blue */
   border-radius: 50%;
   width: 120px;
   height: 120px;

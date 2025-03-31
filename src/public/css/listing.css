@@ -129,12 +129,12 @@ body {
 
 .listing-data-1 {
   /* background-color: yellow; */
-  max-width: 60px;
+  max-width: 100%;
 }
 
 .listing-data {
   /* background-color: chartreuse; */
-  max-width: 80px;
+  max-width: 100%;
 }
 
 .listing-details-right a {
