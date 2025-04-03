@@ -59,8 +59,23 @@ function loadListing() {
     document.querySelector(".listing-data-1").innerHTML = room;
     document.querySelector(".listing-description").innerHTML = listing.description;
     document.querySelector(".original-listing").href = listing.original;
-    if (listing.images.length > 0)
-      document.querySelector(".listing-preview").src = listing.images[0];
+
+    const imageTemplate = document.getElementById("image-card-template");
+    if (listing.images.length > 0) {
+      for (let i = 0; i < listing.images.length; i++) {
+        let card = imageTemplate.content.cloneNode(true);
+
+        card.querySelector(".image").src = listing.images[i];
+        card.querySelector(".numbertext").innerHTML = `${i + 1} / ${listing.images.length}`;
+
+        document.querySelector(".slideshow-container").appendChild(card);
+      }
+    } else {
+      let card = imageTemplate.content.cloneNode(true);
+      document.querySelector(".slideshow-container").appendChild(card);
+    }
+
+    showSlides(1);
 
     // document.querySelector(".map-embed").src = `http://maps.google.com/maps?q=${lat},${lon}&z=15&output=embed`;
   }
