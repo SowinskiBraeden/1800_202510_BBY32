@@ -11,6 +11,7 @@
 body {
   width: 100vw;
   height: 100vh;
+  background-color: #808D8E;
 }
 
 .grid-container {
@@ -29,7 +30,7 @@ body {
 /*** NavBar ***/
 .header-container {
   grid-area: header;
-  background-color: #d20008;
+  background-color: #851e21;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -58,7 +59,7 @@ body {
 .listing {
   height: 350px;
   width: 100%;
-  background-color: lightgrey;
+  background-color: #C1C1C1;
   border-radius: 15px;
   margin-top: 5%;
 }

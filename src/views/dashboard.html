@@ -40,19 +40,19 @@
         <div class="filters-wrapper">
           <div class="filters-content">
             <label>Max Distance</label>
-            <input type="number" class="filter-input" placeholder=" km" id="distance" value="">
+            <input type="number" min="1" class="filter-input" placeholder=" km" id="distance" value="">
   
             <label>Max price</label>
-            <input type="number" class="filter-input" placeholder=" $" id="price" value="">
+            <input type="number" min="1" class="filter-input" placeholder=" $" id="price" value="">
   
             <label>Minimum Bedrooms</label>
-            <input type="number" class="filter-input" placeholder=" min bed" id="bedrooms" value="">
+            <input type="number" min="1" class="filter-input" placeholder=" min bed" id="bedrooms" value="">
   
             <label>Minimum Bathrooms</label>
-            <input type="number" class="filter-input" placeholder=" min bath" id="bathrooms" value="">
+            <input type="number" min="1" class="filter-input" placeholder=" min bath" id="bathrooms" value="">
   
             <label>Minimum Square feet</label>
-            <input type="number" class="filter-input" placeholder=" sqft" id="sqft" value="">
+            <input type="number" min="1" class="filter-input" placeholder=" sqft" id="sqft" value="">
   
             <button id="apply" class="filter-confirm" onclick="getListings()" type="submit">Apply</button>
           </div>

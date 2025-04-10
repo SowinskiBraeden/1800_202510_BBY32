@@ -11,6 +11,7 @@
 body {
   width: 100vw;
   height: 100vh;
+  background-color: #808D8E;
 }
 
 .grid-container {
@@ -29,7 +30,7 @@ body {
 /*** NavBar ***/
 .header-container {
   grid-area: header;
-  background-color: #d20008;
+  background-color: #851e21;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -70,7 +71,7 @@ body {
 .listing {
   width: 100%;
   height: 75%;
-  background-color: gainsboro;
+  background-color: #C1C1C1;
   border-radius: 10px;
 }
 
@@ -80,16 +81,25 @@ body {
 
 .listing-header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   text-align: center;
+  margin-bottom: 12pt;
+}
+
+.listing-header-left {
+  width: 80%;
+}
+
+.listing-header-right {
+  width: 20%;
 }
 
 .listing-header-right img {
   /* background-color: blue; */
-  width: 20%;
-  height: 20%;
+  width: 80%;
+  height: 80%;
   filter: brightness(0);
-  margin: 5px 0px 15px 0px;
+  margin: 15px 0px 15px 0px;
 }
 
 .listing-image {
