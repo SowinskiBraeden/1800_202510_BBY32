@@ -267,3 +267,47 @@ input[type=number] {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+@media only screen and (min-width: 475px) {  
+  .listing-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .listing-link {
+    width: 100%;
+    height: 100%;
+  }
+
+  .listing-content {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    padding: 0pt;
+  }
+
+  .listing-title {
+    overflow: hidden;
+  }
+
+  .listing a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .listing-details {
+    margin: 15px 5px 0px 5px;
+    overflow: hidden;
+  }
+
+  .listing-details h3 {
+    overflow: hidden;
+    width: 70%;
+  }
+
+  .modal-content {
+    width: 50vw;
+    height: 50vh;
+  }
+}
