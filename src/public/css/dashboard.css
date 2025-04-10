@@ -27,84 +27,6 @@ body {
   height: 100%;
 }
 
-/*** Old NavBar ***/
-/* .header-container {
-  grid-area: header;
-  background-color: #bbb;
-  height: 64pt;
-  border-radius: 0pt;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: 0pt;
-  width: 100vw;
-}
-
-.search {
-  display: flex;
-  font-size: 16px;
-  justify-content: space-between;
-  margin-left: 24pt;
-  margin-right: 12pt;
-}
-
-.search-bar {
-  margin: 0pt;
-  padding: 0pt;
-  width: 100%;
-}
-
-.search-bar input {
-  height: 32pt;
-  min-width: 160pt;
-  width: 60%;
-  border-top-left-radius: 32pt;
-  border-bottom-left-radius: 32pt;
-  border: none;
-  text-align: right;
-  font-size: 16px;
-}
-
-.search-bar button {
-  width: 64pt;
-  height: 32pt;
-  border-radius: 0pt;
-  border: none;
-  border-top-right-radius: 32pt;
-  border-bottom-right-radius: 32pt;
-  font-size: 16px;
-}
-
-.filters-btn {
-  margin-right: 12pt;
-  width: 82pt;
-  height: 32pt;
-  border-radius: 32pt;
-  background-color: #dadada;
-  position: relative
-}
-
-.filters-btn p {
-  text-decoration: none;
-  color: black;
-  text-align: center;
-  position: absolute;
-  top: 48%;
-  left: 25%;
-  transform: translate(-25%, -48%);
-  font-weight: 500;
-}
-
-.filters-btn img {
-  color: black;
-  position: absolute;
-  top: 48%;
-  right: 25%;
-  transform: translate(25%, -48%);
-  width: 24px;
-  height: 24px;
-} */
-
 /*** Header ***/
 .header {
   background-color:#851e21;
@@ -163,12 +85,10 @@ body {
   margin: 0px 0px 0px 0px;
   padding: 0px 15px 0px 10px;
   border: 0px;
-  /* color: white; */
 }
 
 #filters img {
   background-color: transparent;
-  /* filter: invert(1); */
   scale: 35%;
   margin: 0px 0px 0px -15px;
   padding: 0px;
@@ -295,10 +215,6 @@ input[type=number] {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.filters-content input {
-
 }
 
 .filters-content button {

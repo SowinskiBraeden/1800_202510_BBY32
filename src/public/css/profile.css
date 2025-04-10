@@ -83,34 +83,6 @@ body {
   padding: 5px 15px 5px 15px;
 }
 
-/* #profContent > img {
-  top: 10%;
-  width: 25%;
-  height: 25%;
-  left: 37%;
-  right: 33%;
-  border-radius: 50%;
-  position: fixed;
-}
-
-#name-goes-here{
-  position: fixed;
-  left:49%;
-  top: 43%;
-  transform: translate(-50%, -50%);
-  font-size: 24pt;
-  color: black;
-}
-
-#address-goes-here{
-  position: fixed;
-  left:49%;
-  top: 63%;
-  transform: translate(-50%, -50%);
-  font-size: 24pt;
-  color: black;
-} */
-
 .footer {
   position: fixed;
   bottom: 0%;

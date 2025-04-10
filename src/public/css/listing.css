@@ -95,7 +95,6 @@ body {
 }
 
 .listing-header-right img {
-  /* background-color: blue; */
   width: 80%;
   height: 80%;
   filter: brightness(0);
@@ -120,8 +119,6 @@ body {
 /*** Image Carousel ***/
 .slideshow-container {
   position: relative;
-  /* background-color: #d20008; */
-  /* overflow: hidden; */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -130,7 +127,6 @@ body {
 }
 
 .mySlides {
-  /* background-color: aqua; */
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -139,7 +135,6 @@ body {
 
 /*** Carousel Images ***/
 .image {
-  /* background-color: yellow; */
   border-radius: 20px;
   height: 225px;
 }
@@ -149,7 +144,6 @@ body {
   background-color: rgba(0,0,0,0.35);
   position: absolute;
   color: white;
-  /* font-size: 12px; */
   padding: 0px 10px 5px 10px;
   border-bottom-left-radius: 50%;
   border-bottom-right-radius: 50%;
@@ -228,7 +222,6 @@ body {
 }
 
 .listing-details-right {
-  /* background-color: blue; */
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -236,12 +229,10 @@ body {
 }
 
 .listing-data-1 {
-  /* background-color: yellow; */
   max-width: 100%;
 }
 
 .listing-data {
-  /* background-color: chartreuse; */
   max-width: 100%;
 }
 
